@@ -71,6 +71,12 @@ public class Frame extends JFrame {
     int redCount = 4;
     int greenCount = 4;
     int goldCount = 4;
+
+    boolean blackState = false, whiteState = false, blueState = false, redState = false, greenState = false;
+    boolean bs = true, ws = true, bls = true, rs = true, gs = true;
+    boolean anyButtonClicked2Coin = false, anyButtonClickedCoin = false;
+
+    int chanceCoin;
     
     Frame() {
         player1.turn = true;
@@ -477,13 +483,22 @@ public class Frame extends JFrame {
         coinLabel.setIcon(coin);
         coinLabel.setOpaque(false);
         coinLabel.setBorder(null);
-        coinLabel.setBounds(1300, 250, 200, 200);
+        coinLabel.setBounds(1300, 300, 200, 200);
         coinLabel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
+                chanceCoin = 3;
+
+                black.setEnabled(true);
+                white.setEnabled(true);
+                blue.setEnabled(true);
+                red.setEnabled(true);
+                green.setEnabled(true);
+
                 JFrame coinFrame = new JFrame("Coins");
                 JLabel cl = new JLabel();
+                JButton get2Coin = new JButton("Get Two Coin!");
                 JLabel infoLabel = new JLabel("Pick your coins!");
                 JLabel blackLabel = new JLabel("BLACK: " + blackCount);
                 JLabel whiteLabel = new JLabel("WHITE: " + whiteCount);
@@ -493,9 +508,261 @@ public class Frame extends JFrame {
                 JLabel goldLabel = new JLabel();
                 JButton addCoins = new JButton("Done!");
 
+                addCoins.setEnabled(true);
+                addCoins.setBackground(Color.yellow);
+
                 cl.setOpaque(true);
                 cl.setBounds(0, 0, 935, 400);
                 cl.setBackground(Color.cyan);
+
+                get2Coin.setBounds(760, 300, 150, 50);
+                get2Coin.setBackground(Color.pink);
+                get2Coin.setFont(new Font("Ink Free", Font.BOLD, 15));
+                get2Coin.setFocusable(false);
+                cl.add(get2Coin);
+
+                if (blackCount < 4 && whiteCount < 4 && blueCount < 4 && redCount < 4 && greenCount < 4) {
+                    get2Coin.setEnabled(false);
+                } else {
+                    get2Coin.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            if (e.getSource() == get2Coin) {
+
+                                JFrame twoCoinFrame = new JFrame("Two coin Frame");
+                                JLabel coinLabel = new JLabel();
+                                coinLabel.setBounds(0, 0, 400, 250);
+                                coinLabel.setOpaque(true);
+                                twoCoinFrame.setLocation(400, 250);
+                                twoCoinFrame.setSize(400, 250);
+
+                                JButton blackBtn = new JButton("BLACK");
+                                blackBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                                blackBtn.setBounds(10, 40, 72, 40);
+                                blackBtn.setForeground(Color.white);
+                                blackBtn.setBackground(Color.black);
+                                blackBtn.setFocusable(false);
+                                coinLabel.add(blackBtn);
+
+                                JButton whiteBtn = new JButton("WHITE");
+                                whiteBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                                whiteBtn.setBounds(82, 40, 72, 40);
+                                whiteBtn.setForeground(Color.black);
+                                whiteBtn.setBackground(Color.white);
+                                whiteBtn.setFocusable(false);
+                                coinLabel.add(whiteBtn);
+
+                                JButton blueBtn = new JButton("BLUE");
+                                blueBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                                blueBtn.setBounds(154, 40, 72, 40);
+                                blueBtn.setBackground(Color.blue);
+                                blueBtn.setFocusable(false);
+                                coinLabel.add(blueBtn);
+
+                                JButton redBtn = new JButton("RED");
+                                redBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                                redBtn.setBounds(226, 40, 72, 40);
+                                redBtn.setBackground(Color.red);
+                                redBtn.setFocusable(false);
+                                coinLabel.add(redBtn);
+
+                                JButton greenBtn = new JButton("GREEN");
+                                greenBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                                greenBtn.setBounds(298, 40, 72, 40);
+                                greenBtn.setBackground(Color.green);
+                                greenBtn.setFocusable(false);
+                                coinLabel.add(greenBtn);
+
+                                JButton doneButton = new JButton("Done!");
+                                doneButton.setFont(new Font("Ink Free", Font.BOLD, 15));
+                                doneButton.setBounds(160, 180, 80, 30);
+                                coinLabel.add(doneButton);
+
+                                blackBtn.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+
+                                        anyButtonClicked2Coin = true;
+
+                                        blackState = true;
+                                        whiteState = false;
+                                        blueState = false;
+                                        redState = false;
+                                        greenState = false;
+
+                                    }
+                                });
+
+                                whiteBtn.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+
+                                        anyButtonClicked2Coin = true;
+
+                                        blackState = false;
+                                        whiteState = true;
+                                        blueState = false;
+                                        redState = false;
+                                        greenState = false;
+
+                                    }
+                                });
+
+                                blueBtn.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+
+                                        anyButtonClicked2Coin = true;
+
+                                        blackState = false;
+                                        whiteState = false;
+                                        blueState = true;
+                                        redState = false;
+                                        greenState = false;
+
+                                    }
+                                });
+
+                                redBtn.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+
+                                        anyButtonClicked2Coin = true;
+
+                                        blackState = false;
+                                        whiteState = false;
+                                        blueState = false;
+                                        redState = true;
+                                        greenState = false;
+
+                                    }
+                                });
+
+                                greenBtn.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+
+                                        anyButtonClicked2Coin = true;
+
+                                        blackState = false;
+                                        whiteState = false;
+                                        blueState = false;
+                                        redState = false;
+                                        greenState = true;
+
+                                    }
+                                });
+
+                                doneButton.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+                                        
+                                        // blackBtn.setEnabled(false);
+                                        // whiteBtn.setEnabled(false);
+                                        // blueBtn.setEnabled(false);
+                                        // redBtn.setEnabled(false);
+                                        // greenBtn.setEnabled(false);
+                                        if (anyButtonClicked2Coin) {
+
+                                            black.setEnabled(false);
+                                            white.setEnabled(false);
+                                            blue.setEnabled(false);
+                                            red.setEnabled(false);
+                                            green.setEnabled(false);
+
+                                        }
+
+                                        if (blackState) {
+
+                                            blackCount -= 2;
+                                        
+                                            if (player1.turn) player1.blackCount += 2;
+                                            else player2.blackCount += 2;
+
+                                            blackLabel.setText("BLACK: " + blackCount);
+
+                                            blackState = false;
+                                            
+                                        } else if (whiteState) {
+
+                                            whiteCount -= 2;
+                                        
+                                            if (player1.turn) player1.whiteCount += 2;
+                                            else player2.whiteCount += 2;
+
+                                            whiteLabel.setText("WHITE: " + whiteCount);
+
+                                            whiteState = false;
+
+                                        } else if (blueState) {
+
+                                            blueCount -= 2;
+                                        
+                                            if (player1.turn) player1.blueCount += 2;
+                                            else player2.blueCount += 2;
+
+                                            blueLabel.setText("BLUE: " + blueCount);
+
+                                            blueState = false;
+
+                                        } else if (redState) {
+
+                                            redCount -= 2;
+                                        
+                                            if (player1.turn) player1.redCount += 2;
+                                            else player2.redCount += 2;
+
+                                            redLabel.setText("RED: " + redCount);
+
+                                            redState = false;
+
+                                        } else if (greenState) {
+
+                                            greenCount -= 2;
+                                            
+                                            if (player1.turn) player1.greenCount += 2;
+                                            else player2.greenCount += 2;
+
+                                            greenLabel.setText("GREEN: " + greenCount);
+
+                                            greenState = false;
+
+                                        }
+
+                                        twoCoinFrame.dispose();
+                                        
+                                    }
+                                });
+
+                                if (blackCount < 4) {
+
+                                    blackBtn.setEnabled(false);
+                                    blackBtn.setBackground(Color.gray);
+
+                                }
+                                if (whiteCount < 4) {
+
+                                    whiteBtn.setEnabled(false);
+                                    whiteBtn.setBackground(Color.gray);
+
+                                }
+                                if (blueCount < 4) {
+
+                                    blueBtn.setEnabled(false);
+                                    blueBtn.setBackground(Color.gray);
+
+                                }
+                                if (redCount < 4) {
+
+                                    redBtn.setEnabled(false);
+                                    redBtn.setBackground(Color.gray);
+
+                                }
+                                if (greenCount < 4) {
+
+                                    greenBtn.setEnabled(false);
+                                    greenBtn.setBackground(Color.gray);
+
+                                }
+                                twoCoinFrame.add(coinLabel);
+                                twoCoinFrame.setVisible(true);
+                            }
+                        }
+                    });
+                }
 
                 infoLabel.setFont(new Font("Ink Free", Font.BOLD, 35));
                 infoLabel.setBounds(350, 0, 300, 60);
@@ -531,18 +798,38 @@ public class Frame extends JFrame {
                 black.setBounds(10, 60, 150, 150);
                 black.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        if (player1.turn) {
-                            if (blackCount > 0) {
-                                blackCount--;
-                                player1.blackCount++;
-                                blackLabel.setText("BLACK: " + blackCount);
+                        if (chanceCoin > 0) {
+
+                            if (bs) {
+                                chanceCoin--;
+                                bs = false;
+                                black.setEnabled(bs);
+                            } else {
+                                chanceCoin++;
+                                bs = true;
+                                black.setEnabled(bs);
                             }
-                        } else {
-                            if (blackCount > 0) {
-                                blackCount--;
-                                player2.blackCount++;
-                                blackLabel.setText("BLACK: " + blackCount);
+
+                            if (player1.turn) {
+                                if (blackCount > 0) {
+                                    blackCount--;
+                                    player1.blackCount++;
+                                    blackLabel.setText("BLACK: " + blackCount);
+                                }
+                            } else {
+                                if (blackCount > 0) {
+                                    blackCount--;
+                                    player2.blackCount++;
+                                    blackLabel.setText("BLACK: " + blackCount);
+                                }
                             }
+                        }
+                        if (chanceCoin == 0) {
+                            black.setEnabled(false);
+                            white.setEnabled(false);
+                            blue.setEnabled(false);
+                            red.setEnabled(false);
+                            green.setEnabled(false);
                         }
                     }
                 });
@@ -550,18 +837,38 @@ public class Frame extends JFrame {
                 white.setBounds(160, 60, 150, 150);
                 white.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        if (player1.turn) {
-                            if (whiteCount > 0) {
-                                whiteCount--;
-                                player1.whiteCount++;
-                                whiteLabel.setText("WHITE: " + whiteCount);
+                        if (chanceCoin > 0) {
+
+                            if (ws) {
+                                chanceCoin--;
+                                ws = false;
+                                white.setEnabled(ws);
+                            } else {
+                                chanceCoin++;
+                                ws = true;
+                                white.setEnabled(ws);
                             }
-                        } else {
-                            if (whiteCount > 0) {
-                                whiteCount--;
-                                player2.whiteCount++;
-                                whiteLabel.setText("WHITE: " + whiteCount);
+
+                            if (player1.turn) {
+                                if (whiteCount > 0) {
+                                    whiteCount--;
+                                    player1.whiteCount++;
+                                    whiteLabel.setText("WHITE: " + whiteCount);
+                                }
+                            } else {
+                                if (whiteCount > 0) {
+                                    whiteCount--;
+                                    player2.whiteCount++;
+                                    whiteLabel.setText("WHITE: " + whiteCount);
+                                }
                             }
+                        }
+                        if (chanceCoin == 0) {
+                            black.setEnabled(false);
+                            white.setEnabled(false);
+                            blue.setEnabled(false);
+                            red.setEnabled(false);
+                            green.setEnabled(false);
                         }
                     }
                 });
@@ -569,18 +876,38 @@ public class Frame extends JFrame {
                 blue.setBounds(310, 60, 150, 150);
                 blue.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        if (player1.turn) {
-                            if (blueCount > 0) {
-                                blueCount--;
-                                player1.blueCount++;
-                                blueLabel.setText("BLUE: " + blueCount);
+                        if (chanceCoin > 0) {
+
+                            if (bls) {
+                                chanceCoin--;
+                                bls = false;
+                                blue.setEnabled(bls);
+                            } else {
+                                chanceCoin++;
+                                bls = true;
+                                blue.setEnabled(bls);
                             }
-                        } else {
-                            if (blueCount > 0) {
-                                blueCount--;
-                                player2.blueCount++;
-                                blueLabel.setText("BLUE: " + blueCount);
+
+                            if (player1.turn) {
+                                if (blueCount > 0) {
+                                    blueCount--;
+                                    player1.blueCount++;
+                                    blueLabel.setText("BLUE: " + blueCount);
+                                }
+                            } else {
+                                if (blueCount > 0) {
+                                    blueCount--;
+                                    player2.blueCount++;
+                                    blueLabel.setText("BLUE: " + blueCount);
+                                }
                             }
+                        }
+                        if (chanceCoin == 0) {
+                            black.setEnabled(false);
+                            white.setEnabled(false);
+                            blue.setEnabled(false);
+                            red.setEnabled(false);
+                            green.setEnabled(false);
                         }
                     }
                 });
@@ -588,18 +915,38 @@ public class Frame extends JFrame {
                 red.setBounds(460, 60, 150, 150);
                 red.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        if (player1.turn) {
-                            if (redCount > 0) {
-                                redCount--;
-                                player1.redCount++;
-                                redLabel.setText("RED: " + redCount);
+                        if (chanceCoin > 0) {
+
+                            if (rs) {
+                                chanceCoin--;
+                                rs = false;
+                                red.setEnabled(rs);
+                            } else {
+                                chanceCoin++;
+                                rs = true;
+                                red.setEnabled(rs);
                             }
-                        } else {
-                            if (redCount > 0) {
-                                redCount--;
-                                player2.redCount++;
-                                redLabel.setText("RED: " + redCount);
+
+                            if (player1.turn) {
+                                if (redCount > 0) {
+                                    redCount--;
+                                    player1.redCount++;
+                                    redLabel.setText("RED: " + redCount);
+                                }
+                            } else {
+                                if (redCount > 0) {
+                                    redCount--;
+                                    player2.redCount++;
+                                    redLabel.setText("RED: " + redCount);
+                                }
                             }
+                        }
+                        if (chanceCoin == 0) {
+                            black.setEnabled(false);
+                            white.setEnabled(false);
+                            blue.setEnabled(false);
+                            red.setEnabled(false);
+                            green.setEnabled(false);
                         }
                     }
                 });
@@ -607,18 +954,38 @@ public class Frame extends JFrame {
                 green.setBounds(610, 60, 150, 150);
                 green.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        if (player1.turn) {
-                            if (greenCount > 0) {
-                                greenCount--;
-                                player1.greenCount++;
-                                greenLabel.setText("GREEN: " + greenCount);
+                        if (chanceCoin > 0) {
+
+                            if (gs) {
+                                chanceCoin--;
+                                gs = false;
+                                green.setEnabled(gs);
+                            } else {
+                                chanceCoin++;
+                                gs = true;
+                                green.setEnabled(gs);
                             }
-                        } else {
-                            if (greenCount > 0) {
-                                greenCount--;
-                                player2.greenCount++;
-                                greenLabel.setText("GREEN: " + greenCount);
+                            
+                            if (player1.turn) {
+                                if (greenCount > 0) {
+                                    greenCount--;
+                                    player1.greenCount++;
+                                    greenLabel.setText("GREEN: " + greenCount);
+                                }
+                            } else {
+                                if (greenCount > 0) {
+                                    greenCount--;
+                                    player2.greenCount++;
+                                    greenLabel.setText("GREEN: " + greenCount);
+                                }
                             }
+                        }
+                        if (chanceCoin == 0) {
+                            black.setEnabled(false);
+                            white.setEnabled(false);
+                            blue.setEnabled(false);
+                            red.setEnabled(false);
+                            green.setEnabled(false);
                         }
                     }
                 });
