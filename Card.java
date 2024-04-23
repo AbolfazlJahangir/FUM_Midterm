@@ -3,17 +3,32 @@ import javax.swing.*;
 
 public class Card extends JLabel implements MouseListener {
 
-    final static int COUNT_COIN_PRICE = 5;
+    final static int COUNT_COIN_PRICE = 4;
 
     ImageIcon cardIcon;
-    int specialCoin;
-    String specialCoinColor;
-    String[] price = new String[COUNT_COIN_PRICE];
+    int score;
+    String specialCoin;
+    String price;
     
-    Card() {
+    public Card(String address, String specialCoin, int score) {
+
+        this.cardIcon = new ImageIcon(address);
+        setCardIcon(cardIcon);
+        this.specialCoin = specialCoin;
+        this.score = score;
 
     }
 
+    public Card() {
+        
+    }
+
+    public void setCardIcon(ImageIcon cardIcon) {
+        this.cardIcon = cardIcon;
+    }
+    public ImageIcon getCardIcon() {
+        return cardIcon;
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
