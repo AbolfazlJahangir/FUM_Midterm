@@ -260,70 +260,134 @@ public class Frame extends JFrame {
                             }
                         }
                         
+                        boolean s = true;
+                        int randomNumber;
+                        
                         if (player1.turn) {
 
-                            player1.score += currentCard.score;
-
                             // add a condition, if I have enough coin then buy the card and add special coin
+                            for (int i = 0; i < currentCard.price.length(); i += 2) {
+                                if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                }
+                            }
 
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                            if (s) {
+                                
+                                player1.score += currentCard.score;
 
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
+                                if (currentCard.specialCoin == "black") player1.specialBlack++;
+                                else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                                else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                                else if (currentCard.specialCoin == "red") player1.specialRed++;
+                                else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                                
+                                specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                                
+                                player1.turn = false;
+                                player2.turn = true;
+                                scoreLabel1.setText("Score:   " + player1.score);
 
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
+                                if (player1.score >= 15) {
+                                    System.out.println(player1.name + " is the winner!") ;
+                                    myFrame.dispose();
+                                }
+
+                                while (true) {
+
+                                    randomNumber = random.nextInt(90);
+
+                                    if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                                    && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                                    && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                                    && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                                        cardLabel1.setIcon(c[randomNumber].getCardIcon());
+                                        cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
+                                        break;
+                                    }
+
+                                }
+                                
+                                buyFrame.dispose();
+
                             }
 
                         } else {
 
-                            player2.score += currentCard.score;
+                            s = true;
 
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
+                            for (int i = 0; i < currentCard.price.length(); i += 2) {
+                                if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
+                                    s = false;
+                                    break;
+                                }
                             }
 
-                        }
+                            if (s) {
+                                
+                                player2.score += currentCard.score;
 
-                        int randomNumber;
+                                if (currentCard.specialCoin == "black") player2.specialBlack++;
+                                else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                                else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                                else if (currentCard.specialCoin == "red") player2.specialRed++;
+                                else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                                
+                                specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
 
-                        while (true) {
+                                player1.turn = true;
+                                player2.turn = false;
+                                scoreLabel2.setText("Score:   " + player2.score);
 
-                            randomNumber = random.nextInt(90);
+                                if (player2.score >= 15) {
+                                    System.out.println(player2.name + " is the winner!") ;
+                                    myFrame.dispose();
+                                }
 
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel1.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
-                                break;
+                                while (true) {
+
+                                    randomNumber = random.nextInt(90);
+
+                                    if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                                    && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                                    && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                                    && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                                        cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                                        cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                                        break;
+                                    }
+
+                                }
+                                
+                                buyFrame.dispose();
+
                             }
-
                         }
-
-                        buyFrame.dispose();
                     }
                 });
 
@@ -1534,256 +1598,280 @@ public class Frame extends JFrame {
 
                 if (blackCount < 4 && whiteCount < 4 && blueCount < 4 && redCount < 4 && greenCount < 4) {
                     get2Coin.setEnabled(false);
-                } else {
-                    get2Coin.addActionListener(new ActionListener() {
-                        public void actionPerformed(ActionEvent e) {
-                            if (e.getSource() == get2Coin) {
-
-                                JFrame twoCoinFrame = new JFrame("Two coin Frame");
-                                JLabel coinLabel = new JLabel();
-                                coinLabel.setBounds(0, 0, 400, 250);
-                                coinLabel.setOpaque(true);
-                                twoCoinFrame.setLocation(400, 250);
-                                twoCoinFrame.setSize(400, 250);
-
-                                JButton blackBtn = new JButton("BLACK");
-                                blackBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                                blackBtn.setBounds(10, 40, 72, 40);
-                                blackBtn.setForeground(Color.white);
-                                blackBtn.setBackground(Color.black);
-                                blackBtn.setFocusable(false);
-                                coinLabel.add(blackBtn);
-
-                                JButton whiteBtn = new JButton("WHITE");
-                                whiteBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                                whiteBtn.setBounds(82, 40, 72, 40);
-                                whiteBtn.setForeground(Color.black);
-                                whiteBtn.setBackground(Color.white);
-                                whiteBtn.setFocusable(false);
-                                coinLabel.add(whiteBtn);
-
-                                JButton blueBtn = new JButton("BLUE");
-                                blueBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                                blueBtn.setBounds(154, 40, 72, 40);
-                                blueBtn.setBackground(Color.blue);
-                                blueBtn.setFocusable(false);
-                                coinLabel.add(blueBtn);
-
-                                JButton redBtn = new JButton("RED");
-                                redBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                                redBtn.setBounds(226, 40, 72, 40);
-                                redBtn.setBackground(Color.red);
-                                redBtn.setFocusable(false);
-                                coinLabel.add(redBtn);
-
-                                JButton greenBtn = new JButton("GREEN");
-                                greenBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                                greenBtn.setBounds(298, 40, 72, 40);
-                                greenBtn.setBackground(Color.green);
-                                greenBtn.setFocusable(false);
-                                coinLabel.add(greenBtn);
-
-                                JButton doneButton = new JButton("Done!");
-                                doneButton.setFont(new Font("Ink Free", Font.BOLD, 15));
-                                doneButton.setBounds(160, 180, 80, 30);
-                                coinLabel.add(doneButton);
-
-                                blackBtn.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-
-                                        anyButtonClicked2Coin = true;
-
-                                        blackState = true;
-                                        whiteState = false;
-                                        blueState = false;
-                                        redState = false;
-                                        greenState = false;
-
-                                    }
-                                });
-
-                                whiteBtn.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-
-                                        anyButtonClicked2Coin = true;
-
-                                        blackState = false;
-                                        whiteState = true;
-                                        blueState = false;
-                                        redState = false;
-                                        greenState = false;
-
-                                    }
-                                });
-
-                                blueBtn.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-
-                                        anyButtonClicked2Coin = true;
-
-                                        blackState = false;
-                                        whiteState = false;
-                                        blueState = true;
-                                        redState = false;
-                                        greenState = false;
-
-                                    }
-                                });
-
-                                redBtn.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-
-                                        anyButtonClicked2Coin = true;
-
-                                        blackState = false;
-                                        whiteState = false;
-                                        blueState = false;
-                                        redState = true;
-                                        greenState = false;
-
-                                    }
-                                });
-
-                                greenBtn.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-
-                                        anyButtonClicked2Coin = true;
-
-                                        blackState = false;
-                                        whiteState = false;
-                                        blueState = false;
-                                        redState = false;
-                                        greenState = true;
-
-                                    }
-                                });
-
-                                doneButton.addActionListener(new ActionListener() {
-                                    public void actionPerformed(ActionEvent e) {
-                                        
-                                        // blackBtn.setEnabled(false);
-                                        // whiteBtn.setEnabled(false);
-                                        // blueBtn.setEnabled(false);
-                                        // redBtn.setEnabled(false);
-                                        // greenBtn.setEnabled(false);
-                                        if (anyButtonClicked2Coin) {
-
-                                            black.setEnabled(false);
-                                            white.setEnabled(false);
-                                            blue.setEnabled(false);
-                                            red.setEnabled(false);
-                                            green.setEnabled(false);
-
-                                        }
-
-                                        if (blackState) {
-
-                                            blackCount -= 2;
-                                        
-                                            if (player1.turn) player1.blackCount += 2;
-                                            else player2.blackCount += 2;
-
-                                            blackLabel.setText("BLACK: " + blackCount);
-
-                                            blackState = false;
-                                            
-                                        } else if (whiteState) {
-
-                                            whiteCount -= 2;
-                                        
-                                            if (player1.turn) player1.whiteCount += 2;
-                                            else player2.whiteCount += 2;
-
-                                            whiteLabel.setText("WHITE: " + whiteCount);
-
-                                            whiteState = false;
-
-                                        } else if (blueState) {
-
-                                            blueCount -= 2;
-                                        
-                                            if (player1.turn) player1.blueCount += 2;
-                                            else player2.blueCount += 2;
-
-                                            blueLabel.setText("BLUE: " + blueCount);
-
-                                            blueState = false;
-
-                                        } else if (redState) {
-
-                                            redCount -= 2;
-                                        
-                                            if (player1.turn) player1.redCount += 2;
-                                            else player2.redCount += 2;
-
-                                            redLabel.setText("RED: " + redCount);
-
-                                            redState = false;
-
-                                        } else if (greenState) {
-
-                                            greenCount -= 2;
-                                            
-                                            if (player1.turn) player1.greenCount += 2;
-                                            else player2.greenCount += 2;
-
-                                            greenLabel.setText("GREEN: " + greenCount);
-
-                                            greenState = false;
-
-                                        }
-                                        
-                                        if (player1.turn) {
-                                            player1.turn = false;
-                                            player2.turn = true;
-                                        }
-                                        else {
-                                            player1.turn = true;
-                                            player2.turn = false;
-                                        }
-
-                                        updateCoin();
-                                        twoCoinFrame.dispose();
-                                        
-                                    }
-                                });
-
-                                if (blackCount < 4) {
-
-                                    blackBtn.setEnabled(false);
-                                    blackBtn.setBackground(Color.gray);
-
-                                }
-                                if (whiteCount < 4) {
-
-                                    whiteBtn.setEnabled(false);
-                                    whiteBtn.setBackground(Color.gray);
-
-                                }
-                                if (blueCount < 4) {
-
-                                    blueBtn.setEnabled(false);
-                                    blueBtn.setBackground(Color.gray);
-
-                                }
-                                if (redCount < 4) {
-
-                                    redBtn.setEnabled(false);
-                                    redBtn.setBackground(Color.gray);
-
-                                }
-                                if (greenCount < 4) {
-
-                                    greenBtn.setEnabled(false);
-                                    greenBtn.setBackground(Color.gray);
-
-                                }
-                                twoCoinFrame.add(coinLabel);
-                                twoCoinFrame.setVisible(true);
-                            }
-                        }
-                    });
                 }
+
+                JFrame twoCoinFrame = new JFrame("Two coin Frame");
+                JLabel coinLabel = new JLabel();
+                coinLabel.setBounds(0, 0, 400, 250);
+                coinLabel.setOpaque(true);
+                twoCoinFrame.setLocation(400, 250);
+                twoCoinFrame.setSize(400, 250);
+
+                JButton blackBtn = new JButton("BLACK");
+                blackBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                blackBtn.setBounds(10, 40, 72, 40);
+                blackBtn.setForeground(Color.white);
+                blackBtn.setBackground(Color.black);
+                blackBtn.setFocusable(false);
+                coinLabel.add(blackBtn);
+
+                JButton whiteBtn = new JButton("WHITE");
+                whiteBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                whiteBtn.setBounds(82, 40, 72, 40);
+                whiteBtn.setForeground(Color.black);
+                whiteBtn.setBackground(Color.white);
+                whiteBtn.setFocusable(false);
+                coinLabel.add(whiteBtn);
+
+                JButton blueBtn = new JButton("BLUE");
+                blueBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                blueBtn.setBounds(154, 40, 72, 40);
+                blueBtn.setBackground(Color.blue);
+                blueBtn.setFocusable(false);
+                coinLabel.add(blueBtn);
+
+                JButton redBtn = new JButton("RED");
+                redBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                redBtn.setBounds(226, 40, 72, 40);
+                redBtn.setBackground(Color.red);
+                redBtn.setFocusable(false);
+                coinLabel.add(redBtn);
+
+                JButton greenBtn = new JButton("GREEN");
+                greenBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
+                greenBtn.setBounds(298, 40, 72, 40);
+                greenBtn.setBackground(Color.green);
+                greenBtn.setFocusable(false);
+                coinLabel.add(greenBtn);
+
+                JButton doneButton = new JButton("Done!");
+                doneButton.setFont(new Font("Ink Free", Font.BOLD, 15));
+                doneButton.setBounds(160, 180, 80, 30);
+                coinLabel.add(doneButton);
+
+                blackBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+
+                        anyButtonClicked2Coin = true;
+
+                        blackState = true;
+                        whiteState = false;
+                        blueState = false;
+                        redState = false;
+                        greenState = false;
+
+                    }
+                });
+
+                whiteBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+
+                        anyButtonClicked2Coin = true;
+
+                        blackState = false;
+                        whiteState = true;
+                        blueState = false;
+                        redState = false;
+                        greenState = false;
+
+                    }
+                });
+
+                blueBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+
+                        anyButtonClicked2Coin = true;
+
+                        blackState = false;
+                        whiteState = false;
+                        blueState = true;
+                        redState = false;
+                        greenState = false;
+
+                    }
+                });
+
+                redBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+
+                        anyButtonClicked2Coin = true;
+
+                        blackState = false;
+                        whiteState = false;
+                        blueState = false;
+                        redState = true;
+                        greenState = false;
+
+                    }
+                });
+
+                greenBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+
+                        anyButtonClicked2Coin = true;
+
+                        blackState = false;
+                        whiteState = false;
+                        blueState = false;
+                        redState = false;
+                        greenState = true;
+
+                    }
+                });
+
+                doneButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        
+                        // blackBtn.setEnabled(false);
+                        // whiteBtn.setEnabled(false);
+                        // blueBtn.setEnabled(false);
+                        // redBtn.setEnabled(false);
+                        // greenBtn.setEnabled(false);
+                        if (anyButtonClicked2Coin) {
+
+                            black.setEnabled(false);
+                            white.setEnabled(false);
+                            blue.setEnabled(false);
+                            red.setEnabled(false);
+                            green.setEnabled(false);
+
+                        }
+
+                        if (blackState) {
+
+                            blackCount -= 2;
+                        
+                            if (player1.turn) {
+                                player1.blackCount += 2;
+                                player1.turn = false;
+                                player2.turn = true;
+                            } else {
+                                player2.blackCount += 2;
+                                player1.turn = true;
+                                player2.turn = false;
+                            }
+
+                            blackLabel.setText("BLACK: " + blackCount);
+
+                            blackState = false;
+                            
+                        } else if (whiteState) {
+
+                            whiteCount -= 2;
+                        
+                            if (player1.turn) {
+                                player1.whiteCount += 2;
+                                player1.turn = false;
+                                player2.turn = true;
+                            } else {
+                                player2.whiteCount += 2;
+                                player1.turn = true;
+                                player2.turn = false;
+                            }
+
+                            whiteLabel.setText("WHITE: " + whiteCount);
+
+                            whiteState = false;
+
+                        } else if (blueState) {
+
+                            blueCount -= 2;
+                        
+                            if (player1.turn) {
+                                player1.blueCount += 2;
+                                player1.turn = false;
+                                player2.turn = true;
+                            } else {
+                                player2.blueCount += 2;
+                                player1.turn = true;
+                                player2.turn = false;
+                            }
+
+                            blueLabel.setText("BLUE: " + blueCount);
+
+                            blueState = false;
+
+                        } else if (redState) {
+
+                            redCount -= 2;
+                        
+                            if (player1.turn) {
+                                player1.redCount += 2;
+                                player1.turn = false;
+                                player2.turn = true;
+                            } else {
+                                player2.redCount += 2;
+                                player1.turn = true;
+                                player2.turn = false;
+                            }
+
+                            redLabel.setText("RED: " + redCount);
+
+                            redState = false;
+
+                        } else if (greenState) {
+
+                            greenCount -= 2;
+                            
+                            if (player1.turn) {
+                                player1.greenCount += 2;
+                                player1.turn = false;
+                                player2.turn = true;
+                            } else {
+                                player2.greenCount += 2;
+                                player1.turn = true;
+                                player2.turn = false;
+                            }
+
+                            greenLabel.setText("GREEN: " + greenCount);
+
+                            greenState = false;
+
+                        }
+
+                        updateCoin();
+                        twoCoinFrame.dispose();
+                        
+                    }
+                });
+
+                get2Coin.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+
+                        if (blackCount < 4) {
+
+                            blackBtn.setEnabled(false);
+                            blackBtn.setBackground(Color.gray);
+
+                        }
+                        if (whiteCount < 4) {
+
+                            whiteBtn.setEnabled(false);
+                            whiteBtn.setBackground(Color.gray);
+
+                        }
+                        if (blueCount < 4) {
+
+                            blueBtn.setEnabled(false);
+                            blueBtn.setBackground(Color.gray);
+
+                        }
+                        if (redCount < 4) {
+
+                            redBtn.setEnabled(false);
+                            redBtn.setBackground(Color.gray);
+
+                        }
+                        if (greenCount < 4) {
+
+                            greenBtn.setEnabled(false);
+                            greenBtn.setBackground(Color.gray);
+
+                        }
+                        twoCoinFrame.add(coinLabel);
+                        twoCoinFrame.setVisible(true);
+                    }
+                });
 
                 infoLabel.setFont(new Font("Ink Free", Font.BOLD, 35));
                 infoLabel.setBounds(350, 0, 300, 60);
@@ -2373,6 +2461,10 @@ public class Frame extends JFrame {
         c[89].price = "7r3B";
 
 
+    }
+
+    public void disableButton(JButton btn) {
+        btn.setEnabled(false);
     }
 
 }
