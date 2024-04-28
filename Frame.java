@@ -3,9 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class Frame extends JFrame {
+public class Frame extends JFrame implements MouseListener, ActionListener {
 
     public static final int ICON_SIZE = 90;
+    
+    JFrame myFrame = this;
 
     Player player1 = new Player(1);
     Player player2 = new Player(2);
@@ -86,15 +88,7 @@ public class Frame extends JFrame {
     ImageIcon redIcon = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\tokens\\RedToken.jpg");
     ImageIcon greenIcon = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\tokens\\GreenToken.jpg");
     ImageIcon goldIcon = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\tokens\\GoldToken.jpg");
-
-    JButton black = new JButton(blackIcon);
-    JButton white = new JButton(whiteIcon);
-    JButton blue = new JButton(blueIcon);
-    JButton red = new JButton(redIcon);
-    JButton green = new JButton(greenIcon);
-    JButton gold = new JButton(goldIcon);
-
-
+    
     int blackCount = 4;
     int whiteCount = 4;
     int blueCount = 4;
@@ -102,18 +96,183 @@ public class Frame extends JFrame {
     int greenCount = 4;
     int goldCount = 4;
 
+    JButton black1 = new JButton(blackIcon);
+    JButton white1 = new JButton(whiteIcon);
+    JButton blue1 = new JButton(blueIcon);
+    JButton red1 = new JButton(redIcon);
+    JButton green1 = new JButton(greenIcon);
+    JButton done1 = new JButton("Done!");
+
+    JLabel black1Label = new JLabel("BLACK: " + this.blackCount);
+    JLabel white1Label = new JLabel("WHITE: " + this.whiteCount);
+    JLabel blue1Label = new JLabel("BLUE: " + this.blueCount);
+    JLabel red1Label = new JLabel("RED: " + this.redCount);
+    JLabel green1Label = new JLabel("GREEN: " + this.greenCount);
+
+    JButton black2 = new JButton(blackIcon);
+    JButton white2 = new JButton(whiteIcon);
+    JButton blue2 = new JButton(blueIcon);
+    JButton red2 = new JButton(redIcon);
+    JButton green2 = new JButton(greenIcon);
+    JButton done2 = new JButton("Done!");
+    
+    JLabel black2Label = new JLabel("BLACK: " + this.blackCount);
+    JLabel white2Label = new JLabel("WHITE: " + this.whiteCount);
+    JLabel blue2Label = new JLabel("BLUE: " + this.blueCount);
+    JLabel red2Label = new JLabel("RED: " + this.redCount);
+    JLabel green2Label = new JLabel("GREEN: " + this.greenCount);
+
     boolean blackState = false, whiteState = false, blueState = false, redState = false, greenState = false;
     boolean bs = true, ws = true, bls = true, rs = true, gs = true;
     boolean anyButtonClicked2Coin = false, anyButtonClickedCoin = false;
 
     int chanceCoin;
+    JFrame get2Frame = new JFrame("Get 2 coin");
+    JFrame get3Frame = new JFrame("Get 3 coin");
+    JLabel get2Label = new JLabel();
+    JLabel get3Label = new JLabel();
+    JLabel text2CoinLabel = new JLabel("Pick up your coin!", SwingConstants.CENTER);
+    JLabel text3CoinLabel = new JLabel("Pick up your coins!", SwingConstants.CENTER);
+    JButton get2Coin = new JButton("Get 2 from 1 color!");
+    JButton get3Coin = new JButton("Get 3 from 3 different colors!");
 
     Random random = new Random();
 
 
     Frame() {
 
-        JFrame myFrame = this;
+        Font colorCountLabelFont = new Font("Ink Free", Font.BOLD, 20);
+
+        black1Label.setBounds(50, 270, 150, 50);
+        black1Label.setForeground(Color.black);
+        black1Label.setFont(colorCountLabelFont);
+        white1Label.setBounds(50, 320, 150, 50);
+        white1Label.setForeground(Color.white);
+        white1Label.setFont(colorCountLabelFont);
+        blue1Label.setBounds(50, 370, 150, 50);
+        blue1Label.setForeground(Color.blue);
+        blue1Label.setFont(colorCountLabelFont);
+        red1Label.setBounds(50, 420, 150, 50);
+        red1Label.setForeground(Color.red);
+        red1Label.setFont(colorCountLabelFont);
+        green1Label.setBounds(50, 470, 150, 50);
+        green1Label.setForeground(Color.green);
+        green1Label.setFont(colorCountLabelFont);
+        
+        black2Label.setBounds(50, 270, 150, 50);
+        black2Label.setForeground(Color.black);
+        black2Label.setFont(colorCountLabelFont);
+        white2Label.setBounds(50, 320, 150, 50);
+        white2Label.setForeground(Color.white);
+        white2Label.setFont(colorCountLabelFont);
+        blue2Label.setBounds(50, 370, 150, 50);
+        blue2Label.setForeground(Color.blue);
+        blue2Label.setFont(colorCountLabelFont);
+        red2Label.setBounds(50, 420, 150, 50);
+        red2Label.setForeground(Color.red);
+        red2Label.setFont(colorCountLabelFont);
+        green2Label.setBounds(50, 470, 150, 50);
+        green2Label.setForeground(Color.green);
+        green2Label.setFont(colorCountLabelFont);
+
+        black1.setBounds(50, 100, 140, 140);
+        black1.addActionListener(this);
+        white1.setBounds(210, 100, 140, 140);
+        white1.addActionListener(this);
+        blue1.setBounds(370, 100, 140, 140);
+        blue1.addActionListener(this);
+        red1.setBounds(530, 100, 140, 140);
+        red1.addActionListener(this);
+        green1.setBounds(690, 100, 140, 140);
+        green1.addActionListener(this);
+
+        black2.setBounds(50, 100, 140, 140);
+        black2.addActionListener(this);
+        white2.setBounds(210, 100, 140, 140);
+        white2.addActionListener(this);
+        blue2.setBounds(370, 100, 140, 140);
+        blue2.addActionListener(this);
+        red2.setBounds(530, 100, 140, 140);
+        red2.addActionListener(this);
+        green2.setBounds(690, 100, 140, 140);
+        green2.addActionListener(this);
+
+        done1.setBounds(375, 500, 150, 50);
+        done1.setFont(new Font("Ink Free", Font.BOLD, 30));
+        done1.setBackground(Color.magenta);
+        done1.setForeground(Color.yellow);
+        done1.setFocusable(false);
+        done1.addActionListener(this);
+
+        done2.setBounds(375, 500, 150, 50);
+        done2.setFont(new Font("Ink Free", Font.BOLD, 30));
+        done2.setBackground(Color.magenta);
+        done2.setForeground(Color.yellow);
+        done2.setFocusable(false);
+        done2.addActionListener(this);
+
+        text2CoinLabel.setFont(new Font("Ink Free", Font.BOLD, 40));
+        text2CoinLabel.setForeground(Color.darkGray);
+        text2CoinLabel.setBounds(0, 0, 900, 75);
+        text2CoinLabel.setOpaque(false);
+
+        text3CoinLabel.setFont(new Font("Ink Free", Font.BOLD, 40));
+        text3CoinLabel.setForeground(Color.darkGray);
+        text3CoinLabel.setBounds(0, 0, 900, 75);
+        text3CoinLabel.setOpaque(false);
+
+        get2Label.setBounds(0, 0, 900, 600);
+        get2Label.setBackground(Color.cyan);
+        get2Label.setOpaque(true);
+        get2Label.add(text2CoinLabel);
+        get2Label.add(black1);
+        get2Label.add(white1);
+        get2Label.add(blue1);
+        get2Label.add(red1);
+        get2Label.add(green1);
+        get2Label.add(done1);
+        get2Label.add(black1Label);
+        get2Label.add(white1Label);
+        get2Label.add(blue1Label);
+        get2Label.add(red1Label);
+        get2Label.add(green1Label);
+
+        get3Label.setBounds(0, 0, 900, 600);
+        get3Label.setBackground(Color.cyan);
+        get3Label.setOpaque(true);
+        get3Label.add(text3CoinLabel);
+        get3Label.add(black2);
+        get3Label.add(white2);
+        get3Label.add(blue2);
+        get3Label.add(red2);
+        get3Label.add(green2);
+        get3Label.add(done2);
+        get3Label.add(black2Label);
+        get3Label.add(white2Label);
+        get3Label.add(blue2Label);
+        get3Label.add(red2Label);
+        get3Label.add(green2Label);
+
+        get2Frame.setSize(900, 600);
+        get2Frame.setLocation(200, 100);
+        get2Frame.add(get2Label);
+
+        get3Frame.setSize(900, 600);
+        get3Frame.setLocation(200, 100);
+        get3Frame.add(get3Label);
+
+        get2Coin.setFont(new Font("Ink Free", Font.BOLD, 12));
+        get2Coin.setBackground(Color.pink);
+        get2Coin.setBounds(10, 10, 200, 75);
+        get2Coin.addActionListener(this);
+        get2Coin.setFocusable(false);
+        
+        get3Coin.setFont(new Font("Ink Free", Font.BOLD, 12));
+        get3Coin.setBackground(Color.red);
+        get3Coin.setForeground(new Color(220, 220, 220));
+        get3Coin.setBounds(10, 120, 200, 75);
+        get3Coin.addActionListener(this);
+        get3Coin.setFocusable(false);
 
         setTitle("SPLENDOR");
         setIconImage(gameIcon.getImage());
@@ -137,7 +296,7 @@ public class Frame extends JFrame {
         cardBuyLabel12 = new JLabel(c[11].getCardIcon());
 
         String name1 = JOptionPane.showInputDialog("Player1, Enter you name:");
-        if (name1 == "") name1 = "Player1";
+        if (name1.isEmpty()) name1 = "Player1";
         player1.name = name1;
 
         player1Label.setBounds(10, 10, 500, 350);
@@ -147,7 +306,7 @@ public class Frame extends JFrame {
         player1NameLabel.setFont(new Font("Ink Free", Font.BOLD, 28));
         player1NameLabel.setBounds(200, 20, 150, 50);
         player1NameLabel.setForeground(Color.white);
-        player1NameLabel.setText(name1);
+        player1NameLabel.setText(player1.name);
         player1Label.add(player1NameLabel);
 
         player1InfoLabel = new JLabel();
@@ -183,7 +342,7 @@ public class Frame extends JFrame {
 
 
         String name2 = JOptionPane.showInputDialog("Player2, Enter you name:");
-        if (name2 == " ") name2 = "Player2";
+        if (name2.isEmpty()) name2 = "Player2";
         player2.name = name2;
         
         player2Label.setBounds(10, 400, 500, 350);
@@ -193,7 +352,7 @@ public class Frame extends JFrame {
         player2NameLabel.setFont(new Font("Ink Free", Font.BOLD, 28));
         player2NameLabel.setBounds(200, 20, 150, 50);
         player2NameLabel.setForeground(Color.white);
-        player2NameLabel.setText(name2);
+        player2NameLabel.setText(player2.name);
         player2Label.add(player2NameLabel);
 
         player2InfoLabel = new JLabel();
@@ -238,1319 +397,53 @@ public class Frame extends JFrame {
         specialCardLabel2.setBounds(850, 20, 190, 180);
         specialCardLabel3.setBounds(600, 20, 190, 180);
 
-        MouseAdapter mouseAdapter1 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        boolean s = true;
-                        int randomNumber;
-                        
-                        if (player1.turn) {
-
-                            // add a condition, if I have enough coin then buy the card and add special coin
-                            for (int i = 0; i < currentCard.price.length(); i += 2) {
-                                if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                }
-                            }
-
-                            if (s) {
-                                
-                                player1.score += currentCard.score;
-
-                                if (currentCard.specialCoin == "black") player1.specialBlack++;
-                                else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                                else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                                else if (currentCard.specialCoin == "red") player1.specialRed++;
-                                else if (currentCard.specialCoin == "green") player1.specialGreen++;
-                                
-                                specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                                
-                                player1.turn = false;
-                                player2.turn = true;
-                                scoreLabel1.setText("Score:   " + player1.score);
-
-                                if (player1.score >= 15) {
-                                    System.out.println(player1.name + " is the winner!") ;
-                                    myFrame.dispose();
-                                }
-
-                                while (true) {
-
-                                    randomNumber = random.nextInt(90);
-
-                                    if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                                    && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                                    && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                                    && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                        cardLabel1.setIcon(c[randomNumber].getCardIcon());
-                                        cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
-                                        break;
-                                    }
-
-                                }
-                                
-                                buyFrame.dispose();
-
-                            }
-
-                        } else {
-
-                            s = true;
-
-                            for (int i = 0; i < currentCard.price.length(); i += 2) {
-                                if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
-                                    s = false;
-                                    break;
-                                }
-                            }
-
-                            if (s) {
-                                
-                                player2.score += currentCard.score;
-
-                                if (currentCard.specialCoin == "black") player2.specialBlack++;
-                                else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                                else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                                else if (currentCard.specialCoin == "red") player2.specialRed++;
-                                else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                                
-                                specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                                player1.turn = true;
-                                player2.turn = false;
-                                scoreLabel2.setText("Score:   " + player2.score);
-
-                                if (player2.score >= 15) {
-                                    System.out.println(player2.name + " is the winner!") ;
-                                    myFrame.dispose();
-                                }
-
-                                while (true) {
-
-                                    randomNumber = random.nextInt(90);
-
-                                    if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                                    && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                                    && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                                    && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                        cardLabel2.setIcon(c[randomNumber].getCardIcon());
-                                        cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
-                                        break;
-                                    }
-
-                                }
-                                
-                                buyFrame.dispose();
-
-                            }
-                        }
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel1);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter2 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel2.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel2.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel2);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter3 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel3.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel3.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel3.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel3);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter4 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel4.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel4.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel4.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel4);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter5 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel5.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel5.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel5.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel5);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter6 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel6.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel6.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel6.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel6);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter7 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel7.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel7.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel7.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel7);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter8 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel8.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel8.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel8.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel8);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter9 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel9.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel9.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel9.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel9);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter10 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel10.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel10.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel10.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel10);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter11 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel11.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel11);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
-        MouseAdapter mouseAdapter12 = new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                JFrame buyFrame = new JFrame("Buy");
-                JButton buyButton = new JButton("Buy!");
-                JButton reserveButton = new JButton("Reserve");
-                Font myFont = new Font("Ink Free", Font.BOLD, 15);
-                
-                buyButton.setFont(myFont);
-                buyButton.setBounds(105, 300, 90, 30);
-                buyButton.setFocusable(false);
-                buyButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        Card currentCard = new Card();
-
-                        for (int i = 0; i < ICON_SIZE; i++) {
-                            if (cardBuyLabel12.getIcon() == c[i].getCardIcon()) {
-                                currentCard = c[i];
-                                break;
-                            }
-                        }
-                        
-                        if (player1.turn) {
-
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        } else {
-
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                        }
-
-                        int randomNumber;
-
-                        while (true) {
-
-                            randomNumber = random.nextInt(90);
-
-                            if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                            && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                cardLabel12.setIcon(c[randomNumber].getCardIcon());
-                                cardBuyLabel12.setIcon(c[randomNumber].getCardIcon());
-                                break;
-                            }
-
-                        }
-
-                        buyFrame.dispose();
-                    }
-                });
-
-                reserveButton.setFont(myFont);
-                reserveButton.setBounds(105, 340, 90, 30);
-                reserveButton.setFocusable(false);
-
-                buyFrame.add(buyButton);
-                buyFrame.add(reserveButton);
-                buyFrame.add(cardBuyLabel12);
-                buyFrame.setSize(300, 420);
-                buyFrame.setLocation(400, 200);
-                buyFrame.setVisible(true);
-            }
-        };
-
         cardLabel1.setBounds(1150, 600, 130, 180);
         cardLabel1.setIcon(arrayIcons[0]);
-        cardLabel1.addMouseListener(mouseAdapter1);
+        cardLabel1.addMouseListener(this);
 
         cardLabel2.setBounds(970, 600, 130, 180);
         cardLabel2.setIcon(arrayIcons[1]);
-        cardLabel2.addMouseListener(mouseAdapter2);
+        cardLabel2.addMouseListener(this);
 
         cardLabel3.setBounds(790, 600, 130, 180);
         cardLabel3.setIcon(arrayIcons[2]);
-        cardLabel3.addMouseListener(mouseAdapter3);
+        cardLabel3.addMouseListener(this);
 
         cardLabel4.setBounds(610, 600, 130, 180);
         cardLabel4.setIcon(arrayIcons[3]);
-        cardLabel4.addMouseListener(mouseAdapter4);
+        cardLabel4.addMouseListener(this);
 
         cardLabel5.setBounds(1150, 410, 130, 180);
         cardLabel5.setIcon(arrayIcons[4]);
-        cardLabel5.addMouseListener(mouseAdapter5);
+        cardLabel5.addMouseListener(this);
 
         cardLabel6.setBounds(970, 410, 130, 180);
         cardLabel6.setIcon(arrayIcons[5]);
-        cardLabel6.addMouseListener(mouseAdapter6);
+        cardLabel6.addMouseListener(this);
 
         cardLabel7.setBounds(790, 410, 130, 180);
         cardLabel7.setIcon(arrayIcons[6]);
-        cardLabel7.addMouseListener(mouseAdapter7);
+        cardLabel7.addMouseListener(this);
 
         cardLabel8.setBounds(610, 410, 130, 180);
         cardLabel8.setIcon(arrayIcons[7]);
-        cardLabel8.addMouseListener(mouseAdapter8);
+        cardLabel8.addMouseListener(this);
 
         cardLabel9.setBounds(1150, 220, 130, 180);
         cardLabel9.setIcon(arrayIcons[8]);
-        cardLabel9.addMouseListener(mouseAdapter9);
+        cardLabel9.addMouseListener(this);
 
         cardLabel10.setBounds(970, 220, 130, 180);
         cardLabel10.setIcon(arrayIcons[9]);
-        cardLabel10.addMouseListener(mouseAdapter10);
+        cardLabel10.addMouseListener(this);
 
         cardLabel11.setBounds(790, 220, 130, 180);
         cardLabel11.setIcon(arrayIcons[10]);
-        cardLabel11.addMouseListener(mouseAdapter11);
+        cardLabel11.addMouseListener(this);
 
         cardLabel12.setBounds(610, 220, 130, 180);
         cardLabel12.setIcon(arrayIcons[11]);
-        cardLabel12.addMouseListener(mouseAdapter12);
+        cardLabel12.addMouseListener(this);
 
         gameLabel.setOpaque(true);
         gameLabel.setIcon(background);
@@ -1559,598 +452,7 @@ public class Frame extends JFrame {
         coinLabel.setOpaque(false);
         coinLabel.setBorder(null);
         coinLabel.setBounds(1300, 300, 200, 200);
-        coinLabel.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-                chanceCoin = 3;
-
-                black.setEnabled(true);
-                white.setEnabled(true);
-                blue.setEnabled(true);
-                red.setEnabled(true);
-                green.setEnabled(true);
-
-                JFrame coinFrame = new JFrame("Coins");
-                JLabel cl = new JLabel();
-                JButton get2Coin = new JButton("Get Two Coin!");
-                JLabel infoLabel = new JLabel("Pick your coins!");
-                JLabel blackLabel = new JLabel("BLACK: " + blackCount);
-                JLabel whiteLabel = new JLabel("WHITE: " + whiteCount);
-                JLabel blueLabel = new JLabel("BLUE: " + blueCount);
-                JLabel redLabel = new JLabel("RED: " + redCount);
-                JLabel greenLabel = new JLabel("GREEN: " + greenCount);
-                JLabel goldLabel = new JLabel();
-                JButton addCoins = new JButton("Done!");
-
-                addCoins.setEnabled(true);
-                addCoins.setBackground(Color.yellow);
-
-                cl.setOpaque(true);
-                cl.setBounds(0, 0, 935, 400);
-                cl.setBackground(Color.cyan);
-
-                get2Coin.setBounds(760, 300, 150, 50);
-                get2Coin.setBackground(Color.pink);
-                get2Coin.setFont(new Font("Ink Free", Font.BOLD, 15));
-                get2Coin.setFocusable(false);
-                cl.add(get2Coin);
-
-                if (blackCount < 4 && whiteCount < 4 && blueCount < 4 && redCount < 4 && greenCount < 4) {
-                    get2Coin.setEnabled(false);
-                }
-
-                JFrame twoCoinFrame = new JFrame("Two coin Frame");
-                JLabel coinLabel = new JLabel();
-                coinLabel.setBounds(0, 0, 400, 250);
-                coinLabel.setOpaque(true);
-                twoCoinFrame.setLocation(400, 250);
-                twoCoinFrame.setSize(400, 250);
-
-                JButton blackBtn = new JButton("BLACK");
-                blackBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                blackBtn.setBounds(10, 40, 72, 40);
-                blackBtn.setForeground(Color.white);
-                blackBtn.setBackground(Color.black);
-                blackBtn.setFocusable(false);
-                coinLabel.add(blackBtn);
-
-                JButton whiteBtn = new JButton("WHITE");
-                whiteBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                whiteBtn.setBounds(82, 40, 72, 40);
-                whiteBtn.setForeground(Color.black);
-                whiteBtn.setBackground(Color.white);
-                whiteBtn.setFocusable(false);
-                coinLabel.add(whiteBtn);
-
-                JButton blueBtn = new JButton("BLUE");
-                blueBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                blueBtn.setBounds(154, 40, 72, 40);
-                blueBtn.setBackground(Color.blue);
-                blueBtn.setFocusable(false);
-                coinLabel.add(blueBtn);
-
-                JButton redBtn = new JButton("RED");
-                redBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                redBtn.setBounds(226, 40, 72, 40);
-                redBtn.setBackground(Color.red);
-                redBtn.setFocusable(false);
-                coinLabel.add(redBtn);
-
-                JButton greenBtn = new JButton("GREEN");
-                greenBtn.setFont(new Font("Ink Free", Font.BOLD, 10));
-                greenBtn.setBounds(298, 40, 72, 40);
-                greenBtn.setBackground(Color.green);
-                greenBtn.setFocusable(false);
-                coinLabel.add(greenBtn);
-
-                JButton doneButton = new JButton("Done!");
-                doneButton.setFont(new Font("Ink Free", Font.BOLD, 15));
-                doneButton.setBounds(160, 180, 80, 30);
-                coinLabel.add(doneButton);
-
-                blackBtn.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        anyButtonClicked2Coin = true;
-
-                        blackState = true;
-                        whiteState = false;
-                        blueState = false;
-                        redState = false;
-                        greenState = false;
-
-                    }
-                });
-
-                whiteBtn.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        anyButtonClicked2Coin = true;
-
-                        blackState = false;
-                        whiteState = true;
-                        blueState = false;
-                        redState = false;
-                        greenState = false;
-
-                    }
-                });
-
-                blueBtn.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        anyButtonClicked2Coin = true;
-
-                        blackState = false;
-                        whiteState = false;
-                        blueState = true;
-                        redState = false;
-                        greenState = false;
-
-                    }
-                });
-
-                redBtn.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        anyButtonClicked2Coin = true;
-
-                        blackState = false;
-                        whiteState = false;
-                        blueState = false;
-                        redState = true;
-                        greenState = false;
-
-                    }
-                });
-
-                greenBtn.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        anyButtonClicked2Coin = true;
-
-                        blackState = false;
-                        whiteState = false;
-                        blueState = false;
-                        redState = false;
-                        greenState = true;
-
-                    }
-                });
-
-                doneButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        
-                        // blackBtn.setEnabled(false);
-                        // whiteBtn.setEnabled(false);
-                        // blueBtn.setEnabled(false);
-                        // redBtn.setEnabled(false);
-                        // greenBtn.setEnabled(false);
-                        if (anyButtonClicked2Coin) {
-
-                            black.setEnabled(false);
-                            white.setEnabled(false);
-                            blue.setEnabled(false);
-                            red.setEnabled(false);
-                            green.setEnabled(false);
-
-                        }
-
-                        if (blackState) {
-
-                            blackCount -= 2;
-                        
-                            if (player1.turn) {
-                                player1.blackCount += 2;
-                                player1.turn = false;
-                                player2.turn = true;
-                            } else {
-                                player2.blackCount += 2;
-                                player1.turn = true;
-                                player2.turn = false;
-                            }
-
-                            blackLabel.setText("BLACK: " + blackCount);
-
-                            blackState = false;
-                            
-                        } else if (whiteState) {
-
-                            whiteCount -= 2;
-                        
-                            if (player1.turn) {
-                                player1.whiteCount += 2;
-                                player1.turn = false;
-                                player2.turn = true;
-                            } else {
-                                player2.whiteCount += 2;
-                                player1.turn = true;
-                                player2.turn = false;
-                            }
-
-                            whiteLabel.setText("WHITE: " + whiteCount);
-
-                            whiteState = false;
-
-                        } else if (blueState) {
-
-                            blueCount -= 2;
-                        
-                            if (player1.turn) {
-                                player1.blueCount += 2;
-                                player1.turn = false;
-                                player2.turn = true;
-                            } else {
-                                player2.blueCount += 2;
-                                player1.turn = true;
-                                player2.turn = false;
-                            }
-
-                            blueLabel.setText("BLUE: " + blueCount);
-
-                            blueState = false;
-
-                        } else if (redState) {
-
-                            redCount -= 2;
-                        
-                            if (player1.turn) {
-                                player1.redCount += 2;
-                                player1.turn = false;
-                                player2.turn = true;
-                            } else {
-                                player2.redCount += 2;
-                                player1.turn = true;
-                                player2.turn = false;
-                            }
-
-                            redLabel.setText("RED: " + redCount);
-
-                            redState = false;
-
-                        } else if (greenState) {
-
-                            greenCount -= 2;
-                            
-                            if (player1.turn) {
-                                player1.greenCount += 2;
-                                player1.turn = false;
-                                player2.turn = true;
-                            } else {
-                                player2.greenCount += 2;
-                                player1.turn = true;
-                                player2.turn = false;
-                            }
-
-                            greenLabel.setText("GREEN: " + greenCount);
-
-                            greenState = false;
-
-                        }
-
-                        updateCoin();
-                        twoCoinFrame.dispose();
-                        
-                    }
-                });
-
-                get2Coin.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        if (blackCount < 4) {
-
-                            blackBtn.setEnabled(false);
-                            blackBtn.setBackground(Color.gray);
-
-                        }
-                        if (whiteCount < 4) {
-
-                            whiteBtn.setEnabled(false);
-                            whiteBtn.setBackground(Color.gray);
-
-                        }
-                        if (blueCount < 4) {
-
-                            blueBtn.setEnabled(false);
-                            blueBtn.setBackground(Color.gray);
-
-                        }
-                        if (redCount < 4) {
-
-                            redBtn.setEnabled(false);
-                            redBtn.setBackground(Color.gray);
-
-                        }
-                        if (greenCount < 4) {
-
-                            greenBtn.setEnabled(false);
-                            greenBtn.setBackground(Color.gray);
-
-                        }
-                        twoCoinFrame.add(coinLabel);
-                        twoCoinFrame.setVisible(true);
-                    }
-                });
-
-                infoLabel.setFont(new Font("Ink Free", Font.BOLD, 35));
-                infoLabel.setBounds(350, 0, 300, 60);
-                infoLabel.setForeground(Color.darkGray);
-                cl.add(infoLabel);
-
-                Font counterLabelFont = new Font("Ink Free", Font.BOLD, 15);
-
-                blackLabel.setBounds(10, 250, 90, 20);
-                blackLabel.setFont(counterLabelFont);
-                cl.add(blackLabel);
-
-                whiteLabel.setBounds(10, 270, 80, 20);
-                whiteLabel.setFont(counterLabelFont);
-                cl.add(whiteLabel);
-
-                blueLabel.setBounds(10, 290, 80, 20);
-                blueLabel.setFont(counterLabelFont);
-                cl.add(blueLabel);
-
-                redLabel.setBounds(10, 310, 80, 20);
-                redLabel.setFont(counterLabelFont);
-                cl.add(redLabel);
-
-                greenLabel.setBounds(10, 330, 80, 20);
-                greenLabel.setFont(counterLabelFont);
-                cl.add(greenLabel);
-
-                goldLabel.setBounds(10, 350, 80, 20);
-                goldLabel.setFont(counterLabelFont);
-                cl.add(goldLabel);
-
-                black.setBounds(10, 60, 150, 150);
-                black.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        if (chanceCoin > 0) {
-
-                            if (bs) {
-                                chanceCoin--;
-                                bs = false;
-                                black.setEnabled(bs);
-                            } else {
-                                chanceCoin++;
-                                bs = true;
-                                black.setEnabled(bs);
-                            }
-
-                            if (player1.turn) {
-                                if (blackCount > 0) {
-                                    blackCount--;
-                                    player1.blackCount++;
-                                    blackLabel.setText("BLACK: " + blackCount);
-                                }
-                            } else {
-                                if (blackCount > 0) {
-                                    blackCount--;
-                                    player2.blackCount++;
-                                    blackLabel.setText("BLACK: " + blackCount);
-                                }
-                            }
-                        }
-                        if (chanceCoin == 0) {
-                            black.setEnabled(false);
-                            white.setEnabled(false);
-                            blue.setEnabled(false);
-                            red.setEnabled(false);
-                            green.setEnabled(false);
-                        }
-                    }
-                });
-
-                white.setBounds(160, 60, 150, 150);
-                white.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        if (chanceCoin > 0) {
-
-                            if (ws) {
-                                chanceCoin--;
-                                ws = false;
-                                white.setEnabled(ws);
-                            } else {
-                                chanceCoin++;
-                                ws = true;
-                                white.setEnabled(ws);
-                            }
-
-                            if (player1.turn) {
-                                if (whiteCount > 0) {
-                                    whiteCount--;
-                                    player1.whiteCount++;
-                                    whiteLabel.setText("WHITE: " + whiteCount);
-                                }
-                            } else {
-                                if (whiteCount > 0) {
-                                    whiteCount--;
-                                    player2.whiteCount++;
-                                    whiteLabel.setText("WHITE: " + whiteCount);
-                                }
-                            }
-                        }
-                        if (chanceCoin == 0) {
-                            black.setEnabled(false);
-                            white.setEnabled(false);
-                            blue.setEnabled(false);
-                            red.setEnabled(false);
-                            green.setEnabled(false);
-                        }
-                    }
-                });
-
-                blue.setBounds(310, 60, 150, 150);
-                blue.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        if (chanceCoin > 0) {
-
-                            if (bls) {
-                                chanceCoin--;
-                                bls = false;
-                                blue.setEnabled(bls);
-                            } else {
-                                chanceCoin++;
-                                bls = true;
-                                blue.setEnabled(bls);
-                            }
-
-                            if (player1.turn) {
-                                if (blueCount > 0) {
-                                    blueCount--;
-                                    player1.blueCount++;
-                                    blueLabel.setText("BLUE: " + blueCount);
-                                }
-                            } else {
-                                if (blueCount > 0) {
-                                    blueCount--;
-                                    player2.blueCount++;
-                                    blueLabel.setText("BLUE: " + blueCount);
-                                }
-                            }
-                        }
-                        if (chanceCoin == 0) {
-                            black.setEnabled(false);
-                            white.setEnabled(false);
-                            blue.setEnabled(false);
-                            red.setEnabled(false);
-                            green.setEnabled(false);
-                        }
-                    }
-                });
-
-                red.setBounds(460, 60, 150, 150);
-                red.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        if (chanceCoin > 0) {
-
-                            if (rs) {
-                                chanceCoin--;
-                                rs = false;
-                                red.setEnabled(rs);
-                            } else {
-                                chanceCoin++;
-                                rs = true;
-                                red.setEnabled(rs);
-                            }
-
-                            if (player1.turn) {
-                                if (redCount > 0) {
-                                    redCount--;
-                                    player1.redCount++;
-                                    redLabel.setText("RED: " + redCount);
-                                }
-                            } else {
-                                if (redCount > 0) {
-                                    redCount--;
-                                    player2.redCount++;
-                                    redLabel.setText("RED: " + redCount);
-                                }
-                            }
-                        }
-                        if (chanceCoin == 0) {
-                            black.setEnabled(false);
-                            white.setEnabled(false);
-                            blue.setEnabled(false);
-                            red.setEnabled(false);
-                            green.setEnabled(false);
-                        }
-                    }
-                });
-
-                green.setBounds(610, 60, 150, 150);
-                green.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        if (chanceCoin > 0) {
-
-                            if (gs) {
-                                chanceCoin--;
-                                gs = false;
-                                green.setEnabled(gs);
-                            } else {
-                                chanceCoin++;
-                                gs = true;
-                                green.setEnabled(gs);
-                            }
-                            
-                            if (player1.turn) {
-                                if (greenCount > 0) {
-                                    greenCount--;
-                                    player1.greenCount++;
-                                    greenLabel.setText("GREEN: " + greenCount);
-                                }
-                            } else {
-                                if (greenCount > 0) {
-                                    greenCount--;
-                                    player2.greenCount++;
-                                    greenLabel.setText("GREEN: " + greenCount);
-                                }
-                            }
-                        }
-                        if (chanceCoin == 0) {
-                            black.setEnabled(false);
-                            white.setEnabled(false);
-                            blue.setEnabled(false);
-                            red.setEnabled(false);
-                            green.setEnabled(false);
-                        }
-                    }
-                });
-
-                gold.setBounds(760, 60, 150, 150);
-
-
-                // Add the chosen coins to the player's coins
-                addCoins.setBounds(410, 300, 100, 50);
-                addCoins.setFocusable(false);
-                addCoins.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-
-                        // add coins ......
-                        if (player1.turn) {
-                            player1.turn = false;
-                            player2.turn = true;
-                        }
-                        else {
-                            player1.turn = true;
-                            player2.turn = false;
-                        }
-                        updateCoin();
-                        coinFrame.dispose();
-                    }
-                });
-                cl.add(addCoins);
-
-                coinFrame.setLayout(null);
-                coinFrame.setSize(935, 405);
-                coinFrame.setLocation(100, 100);
-
-                coinFrame.add(black);
-                coinFrame.add(white);
-                coinFrame.add(blue);
-                coinFrame.add(red);
-                coinFrame.add(green);
-                coinFrame.add(gold);
-                coinFrame.add(cl);
-
-                coinFrame.setVisible(true);
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) { }
-
-            @Override
-            public void mouseReleased(MouseEvent e) { }
-
-            @Override
-            public void mouseEntered(MouseEvent e) { }
-
-            @Override
-            public void mouseExited(MouseEvent e) { }
-        });
+        coinLabel.addMouseListener(this);
 
         gameLabel.add(coinLabel);
 
@@ -2465,6 +767,1547 @@ public class Frame extends JFrame {
 
     public void disableButton(JButton btn) {
         btn.setEnabled(false);
+    }
+
+    public void disableAll1() {
+        this.black1.setEnabled(false);
+        this.white1.setEnabled(false);
+        this.blue1.setEnabled(false);
+        this.red1.setEnabled(false);
+        this.green1.setEnabled(false);
+    }
+
+    public void disableAll2() {
+        this.black2.setEnabled(false);
+        this.white2.setEnabled(false);
+        this.blue2.setEnabled(false);
+        this.red2.setEnabled(false);
+        this.green2.setEnabled(false);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+        if (e.getSource() == coinLabel) {
+            coinLabel.setIcon(null);
+            coinLabel.add(get2Coin);
+            coinLabel.add(get3Coin);
+        }
+
+
+        if (e.getSource() == cardLabel1) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    boolean s = true;
+                    int randomNumber;
+                    
+                    if (player1.turn) {
+
+                        // add a condition, if I have enough coin then buy the card and add special coin
+                        for (int i = 0; i < currentCard.price.length(); i += 2) {
+                            if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            }
+                        }
+
+                        if (s) {
+                            
+                            player1.score += currentCard.score;
+
+                            if (currentCard.specialCoin == "black") player1.specialBlack++;
+                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                            else if (currentCard.specialCoin == "red") player1.specialRed++;
+                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                            
+                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                            
+                            player1.turn = false;
+                            player2.turn = true;
+                            scoreLabel1.setText("Score:   " + player1.score);
+
+                            if (player1.score >= 15) {
+                                System.out.println(player1.name + " is the winner!") ;
+                                myFrame.dispose();
+                            }
+
+                            while (true) {
+
+                                randomNumber = random.nextInt(90);
+
+                                if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                                && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                                && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                                && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                                    cardLabel1.setIcon(c[randomNumber].getCardIcon());
+                                    cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
+                                    break;
+                                }
+
+                            }
+                            
+                            buyFrame.dispose();
+
+                        }
+
+                    } else {
+
+                        s = true;
+
+                        for (int i = 0; i < currentCard.price.length(); i += 2) {
+                            if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
+                                s = false;
+                                break;
+                            }
+                        }
+
+                        if (s) {
+                            
+                            player2.score += currentCard.score;
+
+                            if (currentCard.specialCoin == "black") player2.specialBlack++;
+                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                            else if (currentCard.specialCoin == "red") player2.specialRed++;
+                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                            
+                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                            player1.turn = true;
+                            player2.turn = false;
+                            scoreLabel2.setText("Score:   " + player2.score);
+
+                            if (player2.score >= 15) {
+                                System.out.println(player2.name + " is the winner!") ;
+                                myFrame.dispose();
+                            }
+
+                            while (true) {
+
+                                randomNumber = random.nextInt(90);
+
+                                if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                                && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                                && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                                && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                                    cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                                    cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                                    break;
+                                }
+
+                            }
+                            
+                            buyFrame.dispose();
+
+                        }
+                    }
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel1);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel2) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel2.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel2);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel3) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel3.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel3.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel3.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel3);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel4) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel4.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel4.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel4.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel4);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel5) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel5.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel5.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel5.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel5);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        } 
+
+        if (e.getSource() == cardLabel6) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel6.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel6.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel6.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel6);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+    
+        if (e.getSource() == cardLabel7) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel7.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel7.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel7.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel7);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+    
+        if (e.getSource() == cardLabel8) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel8.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel8.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel8.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel8);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel9) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel9.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel9.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel9.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel9);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel10) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel10.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel10.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel10.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel10);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel11) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel11);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+        if (e.getSource() == cardLabel12) {
+            JFrame buyFrame = new JFrame("Buy");
+            JButton buyButton = new JButton("Buy!");
+            JButton reserveButton = new JButton("Reserve");
+            Font myFont = new Font("Ink Free", Font.BOLD, 15);
+            
+            buyButton.setFont(myFont);
+            buyButton.setBounds(105, 300, 90, 30);
+            buyButton.setFocusable(false);
+            buyButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+
+                    Card currentCard = new Card();
+
+                    for (int i = 0; i < ICON_SIZE; i++) {
+                        if (cardBuyLabel12.getIcon() == c[i].getCardIcon()) {
+                            currentCard = c[i];
+                            break;
+                        }
+                    }
+                    
+                    if (player1.turn) {
+
+                        player1.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player1.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player1.specialRed++;
+                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                        
+                        player1.turn = false;
+                        player2.turn = true;
+                        scoreLabel1.setText("Score:   " + player1.score);
+
+                        if (player1.score >= 15) {
+                            System.out.println(player1.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    } else {
+
+                        player2.score += currentCard.score;
+
+                        if (currentCard.specialCoin == "black") player2.specialBlack++;
+                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                        else if (currentCard.specialCoin == "red") player2.specialRed++;
+                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                        
+                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                        player1.turn = true;
+                        player2.turn = false;
+                        scoreLabel2.setText("Score:   " + player2.score);
+
+                        if (player2.score >= 15) {
+                            System.out.println(player2.name + " is the winner!") ;
+                            myFrame.dispose();
+                        }
+
+                    }
+
+                    int randomNumber;
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel12.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel12.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame.dispose();
+                }
+            });
+
+            reserveButton.setFont(myFont);
+            reserveButton.setBounds(105, 340, 90, 30);
+            reserveButton.setFocusable(false);
+
+            buyFrame.add(buyButton);
+            buyFrame.add(reserveButton);
+            buyFrame.add(cardBuyLabel12);
+            buyFrame.setSize(300, 420);
+            buyFrame.setLocation(400, 200);
+            buyFrame.setVisible(true);
+        }
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) { }
+
+    @Override
+    public void mouseReleased(MouseEvent e) { }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if (e.getSource() == cardLabel1) {
+            cardLabel1.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel2) {
+            cardLabel2.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel3) {
+            cardLabel3.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel4) {
+            cardLabel4.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel5) {
+            cardLabel5.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel6) {
+            cardLabel6.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel7) {
+            cardLabel7.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel8) {
+            cardLabel8.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel9) {
+            cardLabel9.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel10) {
+            cardLabel10.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel11) {
+            cardLabel11.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == cardLabel12) {
+            cardLabel12.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        cardLabel1.setBorder(null);
+        cardLabel2.setBorder(null);
+        cardLabel3.setBorder(null);
+        cardLabel4.setBorder(null);
+        cardLabel5.setBorder(null);
+        cardLabel6.setBorder(null);
+        cardLabel7.setBorder(null);
+        cardLabel8.setBorder(null);
+        cardLabel9.setBorder(null);
+        cardLabel10.setBorder(null);
+        cardLabel11.setBorder(null);
+        cardLabel12.setBorder(null);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if (e.getSource() == get2Coin) {
+            
+            chanceCoin = 3;
+            get2Frame.setVisible(true);
+            coinLabel.remove(get2Coin);
+            coinLabel.remove(get3Coin);
+            coinLabel.setIcon(coin);
+
+        }
+
+        if (e.getSource() == black1) {
+            if (this.blackCount > 0) {
+                chanceCoin--;
+                this.blackCount--;
+                blackState = true;
+                black1.setEnabled(false);
+            }
+            if (chanceCoin == 0) disableAll1();
+            black1Label.setText("BLACK: " + this.blackCount);
+        }
+
+        if (e.getSource() == white1) {
+            if (this.whiteCount > 0) {
+                chanceCoin--;
+                this.whiteCount--;
+                whiteState = true;
+                white1.setEnabled(false);
+            }
+            if (chanceCoin == 0) disableAll1();
+            white1Label.setText("WHITE: " + this.whiteCount);
+        }
+        
+        if (e.getSource() == blue1) {
+            if (this.blueCount > 0) {
+                chanceCoin--;
+                this.blueCount--;
+                blueState = true;
+                blue1.setEnabled(false);
+            }
+            if (chanceCoin == 0) disableAll1();
+            blue1Label.setText("BLUE: " + this.blueCount);
+        }
+        
+        if (e.getSource() == red1) {
+            if (this.redCount > 0) {
+                chanceCoin--;
+                this.redCount--;
+                redState = true;
+                red1.setEnabled(false);
+            }
+            if (chanceCoin == 0) disableAll1();
+            red1Label.setText("RED: " + this.redCount);
+        }
+        
+        if (e.getSource() == green1) {
+            if (this.greenCount > 0) {
+                chanceCoin--;
+                this.greenCount--;
+                greenState = true;
+                green1.setEnabled(false);
+            }
+            if (chanceCoin == 0) disableAll1();
+            green1Label.setText("GREEN: " + this.greenCount);
+        }
+
+        if (e.getSource() == done1) {
+            if (player1.turn) {
+
+                player1.turn = false;
+                player2.turn = true;
+                if (blackState) player1.blackCount++;
+                if (whiteState) player1.whiteCount++;
+                if (blueState) player1.blueCount++;
+                if (redState) player1.redCount++;
+                if (greenState) player1.greenCount++;
+
+            } else {
+
+                player1.turn = true;
+                player2.turn = false;
+                if (blackState) player2.blackCount++;
+                if (whiteState) player2.whiteCount++;
+                if (blueState) player2.blueCount++;
+                if (redState) player2.redCount++;
+                if (greenState) player2.greenCount++;
+
+            }
+
+            blackState = false;
+            whiteState = false;
+            blueState = false;
+            redState = false;
+            greenState = false;
+
+            black1.setEnabled(true);
+            white1.setEnabled(true);
+            blue1.setEnabled(true);
+            red1.setEnabled(true);
+            green1.setEnabled(true);
+
+            updateCoin();
+            get2Frame.dispose();
+        }
+        
+        
+        if (e.getSource() == get3Coin) {
+            
+            get3Frame.setVisible(true);
+            coinLabel.remove(get2Coin);
+            coinLabel.remove(get3Coin);
+            coinLabel.setIcon(coin);
+
+        }
+
+        if (e.getSource() == black2) {
+            if (this.blackCount == 4) {
+                this.blackCount -= 2;
+                blackState = true;
+                black2.setEnabled(false);
+            }
+            black2Label.setText("BLACK: " + this.blackCount);
+            disableAll2();
+        }
+
+        if (e.getSource() == white2) {
+            if (this.whiteCount == 4) {
+                this.whiteCount -= 2;
+                whiteState = true;
+                white2.setEnabled(false);
+            }
+            white2Label.setText("WHITE: " + this.whiteCount);
+            disableAll2();
+        }
+
+        if (e.getSource() == blue2) {
+            if (this.blueCount == 4) {
+                this.blueCount -= 2;
+                blueState = true;
+                blue2.setEnabled(false);
+            }
+            blue2Label.setText("BLUE: " + this.blueCount);
+            disableAll2();
+        }
+
+        if (e.getSource() == red2) {
+            if (this.redCount == 4) {
+                this.redCount -= 2;
+                redState = true;
+                red2.setEnabled(false);
+            }
+            red2Label.setText("RED: " + this.redCount);
+            disableAll2();
+        }
+
+        if (e.getSource() == green2) {
+            if (this.greenCount == 4) {
+                this.greenCount -= 2;
+                greenState = true;
+                green2.setEnabled(false);
+            }
+            green2Label.setText("GREEN: " + this.greenCount);
+            disableAll2();
+        }
+
+        if (e.getSource() == done2) {
+
+            if (player1.turn) {
+
+                player1.turn = false;
+                player2.turn = true;
+                if (blackState) player1.blackCount += 2;
+                if (whiteState) player1.whiteCount += 2;
+                if (blueState) player1.blueCount += 2;
+                if (redState) player1.redCount += 2;
+                if (greenState) player1.greenCount += 2;
+
+            } else {
+
+                player1.turn = true;
+                player2.turn = false;
+                if (blackState) player2.blackCount += 2;
+                if (whiteState) player2.whiteCount += 2;
+                if (blueState) player2.blueCount += 2;
+                if (redState) player2.redCount += 2;
+                if (greenState) player2.greenCount += 2;
+
+            }
+
+            blackState = false;
+            whiteState = false;
+            blueState = false;
+            redState = false;
+            greenState = false;
+
+            if (this.blackCount == 4) black2.setEnabled(true);
+            if (this.whiteCount == 4) white2.setEnabled(true);
+            if (this.blueCount == 4) blue2.setEnabled(true);
+            if (this.redCount == 4) red2.setEnabled(true);
+            if (this.greenCount == 4) green2.setEnabled(true);
+
+            updateCoin();
+            get3Frame.dispose();
+        }
+
     }
 
 }
