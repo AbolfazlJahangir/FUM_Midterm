@@ -82,6 +82,36 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     JLabel cardBuyLabel11;
     JLabel cardBuyLabel12;
 
+    JFrame resFrame = new JFrame("Reserved Cards");
+    JLabel resMainLabel = new JLabel();
+    JLabel resLabel1 = new JLabel();
+    JLabel resLabel2 = new JLabel();
+    JLabel resLabel3 = new JLabel();
+    JLabel resLabel4 = new JLabel();
+    JLabel resLabel5 = new JLabel();
+    JLabel resLabel6 = new JLabel();
+    boolean res1 = true, res2 = true, res3 = true, res4 = true, res5 = true, res6 = true;
+    int r1 = 0, r2 = 0, r3 = 0, r4 = 0, r5 = 0, r6 = 0;
+    JFrame buyResFrame1 = new JFrame("Buy the reserved card!");
+    JFrame buyResFrame2 = new JFrame("Buy the reserved card!");
+    JFrame buyResFrame3 = new JFrame("Buy the reserved card!");
+    JFrame buyResFrame4 = new JFrame("Buy the reserved card!");
+    JFrame buyResFrame5 = new JFrame("Buy the reserved card!");
+    JFrame buyResFrame6 = new JFrame("Buy the reserved card!");
+    JLabel buyResLabel1 = new JLabel();
+    JLabel buyResLabel2 = new JLabel();
+    JLabel buyResLabel3 = new JLabel();
+    JLabel buyResLabel4 = new JLabel();
+    JLabel buyResLabel5 = new JLabel();
+    JLabel buyResLabel6 = new JLabel();
+    JButton buyResButton1 = new JButton("Buy!");
+    JButton buyResButton2 = new JButton("Buy!");
+    JButton buyResButton3 = new JButton("Buy!");
+    JButton buyResButton4 = new JButton("Buy!");
+    JButton buyResButton5 = new JButton("Buy!");
+    JButton buyResButton6 = new JButton("Buy!");
+    JButton showFrame = new JButton("Reserved Cards!");
+
     ImageIcon blackIcon = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\tokens\\BlackToken.jpg");
     ImageIcon whiteIcon = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\tokens\\WhiteToken.jpg");
     ImageIcon blueIcon = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\tokens\\BlueToken.jpg");
@@ -144,6 +174,50 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     JButton buyButton1 = new JButton("Buy!");
     JButton reserveButton1 = new JButton("Reserve");
 
+    JFrame buyFrame2 = new JFrame("Buy");
+    JButton buyButton2 = new JButton("Buy!");
+    JButton reserveButton2 = new JButton("Reserve");
+
+    JFrame buyFrame3 = new JFrame("Buy");
+    JButton buyButton3 = new JButton("Buy!");
+    JButton reserveButton3 = new JButton("Reserve");
+    
+    JFrame buyFrame4 = new JFrame("Buy");
+    JButton buyButton4 = new JButton("Buy!");
+    JButton reserveButton4 = new JButton("Reserve");
+    
+    JFrame buyFrame5 = new JFrame("Buy");
+    JButton buyButton5 = new JButton("Buy!");
+    JButton reserveButton5 = new JButton("Reserve");
+    
+    JFrame buyFrame6 = new JFrame("Buy");
+    JButton buyButton6 = new JButton("Buy!");
+    JButton reserveButton6 = new JButton("Reserve");
+    
+    JFrame buyFrame7 = new JFrame("Buy");
+    JButton buyButton7 = new JButton("Buy!");
+    JButton reserveButton7 = new JButton("Reserve");
+    
+    JFrame buyFrame8 = new JFrame("Buy");
+    JButton buyButton8 = new JButton("Buy!");
+    JButton reserveButton8 = new JButton("Reserve");
+    
+    JFrame buyFrame9 = new JFrame("Buy");
+    JButton buyButton9 = new JButton("Buy!");
+    JButton reserveButton9 = new JButton("Reserve");
+    
+    JFrame buyFrame10 = new JFrame("Buy");
+    JButton buyButton10 = new JButton("Buy!");
+    JButton reserveButton10 = new JButton("Reserve");
+    
+    JFrame buyFrame11 = new JFrame("Buy");
+    JButton buyButton11 = new JButton("Buy!");
+    JButton reserveButton11 = new JButton("Reserve");
+    
+    JFrame buyFrame12 = new JFrame("Buy");
+    JButton buyButton12 = new JButton("Buy!");
+    JButton reserveButton12 = new JButton("Reserve");
+
     Frame() {
         addCards();
 
@@ -160,20 +234,220 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         cardBuyLabel11 = new JLabel(c[10].getCardIcon());
         cardBuyLabel12 = new JLabel(c[11].getCardIcon());
 
+        showFrame.setBounds(1330, 675, 140, 75);
+        showFrame.setBackground(Color.black);
+        showFrame.setForeground(Color.white);
+        showFrame.setFocusable(false);
+        showFrame.setFont(new Font("Ink Free", Font.BOLD, 14));
+        showFrame.addActionListener(this);
+        
+        resFrame.setSize(510, 425);
+        resFrame.setLocation(400, 250);
+
+        resLabel1.setBounds(50, 10, 130, 180);
+        resLabel1.setBackground(Color.blue);
+        resLabel1.setOpaque(true);
+        resLabel1.addMouseListener(this);
+        resLabel2.setBounds(190, 10, 130, 180);
+        resLabel2.setBackground(Color.blue);
+        resLabel2.setOpaque(true);
+        resLabel2.addMouseListener(this);
+        resLabel3.setBounds(330, 10, 130, 180);
+        resLabel3.setBackground(Color.blue);
+        resLabel3.setOpaque(true);
+        resLabel3.addMouseListener(this);
+        resLabel4.setBounds(50, 200, 130, 180);
+        resLabel4.setBackground(Color.blue);
+        resLabel4.setOpaque(true);
+        resLabel4.addMouseListener(this);
+        resLabel5.setBounds(190, 200, 130, 180);
+        resLabel5.setBackground(Color.blue);
+        resLabel5.setOpaque(true);
+        resLabel5.addMouseListener(this);
+        resLabel6.setBounds(330, 200, 130, 180);
+        resLabel6.setBackground(Color.blue);
+        resLabel6.setOpaque(true);
+        resLabel6.addMouseListener(this);
+
+        resMainLabel.setBounds(0, 0, 510, 425);
+        resMainLabel.setBackground(Color.red);
+        resMainLabel.setOpaque(true);
+
+        resMainLabel.add(resLabel1);
+        resMainLabel.add(resLabel2);
+        resMainLabel.add(resLabel3);
+        resMainLabel.add(resLabel4);
+        resMainLabel.add(resLabel5);
+        resMainLabel.add(resLabel6);
+        resFrame.add(resMainLabel);
+
         buyButton1.setFont(myFont);
         buyButton1.setBounds(105, 300, 90, 30);
         buyButton1.setFocusable(false);
         buyButton1.addActionListener(this);
-
         reserveButton1.setFont(myFont);
         reserveButton1.setBounds(105, 340, 90, 30);
         reserveButton1.setFocusable(false);
-
+        reserveButton1.addActionListener(this);
         buyFrame1.add(buyButton1);
         buyFrame1.add(reserveButton1);
         buyFrame1.add(cardBuyLabel1);
         buyFrame1.setSize(300, 420);
         buyFrame1.setLocation(400, 200);
+        
+        buyButton2.setFont(myFont);
+        buyButton2.setBounds(105, 300, 90, 30);
+        buyButton2.setFocusable(false);
+        buyButton2.addActionListener(this);
+        reserveButton2.setFont(myFont);
+        reserveButton2.setBounds(105, 340, 90, 30);
+        reserveButton2.setFocusable(false);
+        reserveButton2.addActionListener(this);
+        buyFrame2.add(buyButton2);
+        buyFrame2.add(reserveButton2);
+        buyFrame2.add(cardBuyLabel2);
+        buyFrame2.setSize(300, 420);
+        buyFrame2.setLocation(400, 200);
+
+        buyButton3.setFont(myFont);
+        buyButton3.setBounds(105, 300, 90, 30);
+        buyButton3.setFocusable(false);
+        buyButton3.addActionListener(this);
+        reserveButton3.setFont(myFont);
+        reserveButton3.setBounds(105, 340, 90, 30);
+        reserveButton3.setFocusable(false);
+        reserveButton3.addActionListener(this);
+        buyFrame3.add(buyButton3);
+        buyFrame3.add(reserveButton3);
+        buyFrame3.add(cardBuyLabel3);
+        buyFrame3.setSize(300, 420);
+        buyFrame3.setLocation(400, 200);
+
+        buyButton4.setFont(myFont);
+        buyButton4.setBounds(105, 300, 90, 30);
+        buyButton4.setFocusable(false);
+        buyButton4.addActionListener(this);
+        reserveButton4.setFont(myFont);
+        reserveButton4.setBounds(105, 340, 90, 30);
+        reserveButton4.setFocusable(false);
+        reserveButton4.addActionListener(this);
+        buyFrame4.add(buyButton4);
+        buyFrame4.add(reserveButton4);
+        buyFrame4.add(cardBuyLabel4);
+        buyFrame4.setSize(300, 420);
+        buyFrame4.setLocation(400, 200);
+
+        buyButton5.setFont(myFont);
+        buyButton5.setBounds(105, 300, 90, 30);
+        buyButton5.setFocusable(false);
+        buyButton5.addActionListener(this);
+        reserveButton5.setFont(myFont);
+        reserveButton5.setBounds(105, 340, 90, 30);
+        reserveButton5.setFocusable(false);
+        reserveButton5.addActionListener(this);
+        buyFrame5.add(buyButton5);
+        buyFrame5.add(reserveButton5);
+        buyFrame5.add(cardBuyLabel5);
+        buyFrame5.setSize(300, 420);
+        buyFrame5.setLocation(400, 200);
+
+        buyButton6.setFont(myFont);
+        buyButton6.setBounds(105, 300, 90, 30);
+        buyButton6.setFocusable(false);
+        buyButton6.addActionListener(this);
+        reserveButton6.setFont(myFont);
+        reserveButton6.setBounds(105, 340, 90, 30);
+        reserveButton6.setFocusable(false);
+        reserveButton6.addActionListener(this);
+        buyFrame6.add(buyButton6);
+        buyFrame6.add(reserveButton6);
+        buyFrame6.add(cardBuyLabel6);
+        buyFrame6.setSize(300, 420);
+        buyFrame6.setLocation(400, 200);
+
+        buyButton7.setFont(myFont);
+        buyButton7.setBounds(105, 300, 90, 30);
+        buyButton7.setFocusable(false);
+        buyButton7.addActionListener(this);
+        reserveButton7.setFont(myFont);
+        reserveButton7.setBounds(105, 340, 90, 30);
+        reserveButton7.setFocusable(false);
+        reserveButton7.addActionListener(this);
+        buyFrame7.add(buyButton7);
+        buyFrame7.add(reserveButton7);
+        buyFrame7.add(cardBuyLabel7);
+        buyFrame7.setSize(300, 420);
+        buyFrame7.setLocation(400, 200);
+
+        buyButton8.setFont(myFont);
+        buyButton8.setBounds(105, 300, 90, 30);
+        buyButton8.setFocusable(false);
+        buyButton8.addActionListener(this);
+        reserveButton8.setFont(myFont);
+        reserveButton8.setBounds(105, 340, 90, 30);
+        reserveButton8.setFocusable(false);
+        reserveButton8.addActionListener(this);
+        buyFrame8.add(buyButton8);
+        buyFrame8.add(reserveButton8);
+        buyFrame8.add(cardBuyLabel8);
+        buyFrame8.setSize(300, 420);
+        buyFrame8.setLocation(400, 200);
+
+        buyButton9.setFont(myFont);
+        buyButton9.setBounds(105, 300, 90, 30);
+        buyButton9.setFocusable(false);
+        buyButton9.addActionListener(this);
+        reserveButton9.setFont(myFont);
+        reserveButton9.setBounds(105, 340, 90, 30);
+        reserveButton9.setFocusable(false);
+        reserveButton9.addActionListener(this);
+        buyFrame9.add(buyButton9);
+        buyFrame9.add(reserveButton9);
+        buyFrame9.add(cardBuyLabel9);
+        buyFrame9.setSize(300, 420);
+        buyFrame9.setLocation(400, 200);
+
+        buyButton10.setFont(myFont);
+        buyButton10.setBounds(105, 300, 90, 30);
+        buyButton10.setFocusable(false);
+        buyButton10.addActionListener(this);
+        reserveButton10.setFont(myFont);
+        reserveButton10.setBounds(105, 340, 90, 30);
+        reserveButton10.setFocusable(false);
+        reserveButton10.addActionListener(this);
+        buyFrame10.add(buyButton10);
+        buyFrame10.add(reserveButton10);
+        buyFrame10.add(cardBuyLabel10);
+        buyFrame10.setSize(300, 420);
+        buyFrame10.setLocation(400, 200);
+
+        buyButton11.setFont(myFont);
+        buyButton11.setBounds(105, 300, 90, 30);
+        buyButton11.setFocusable(false);
+        buyButton11.addActionListener(this);
+        reserveButton11.setFont(myFont);
+        reserveButton11.setBounds(105, 340, 90, 30);
+        reserveButton11.setFocusable(false);
+        reserveButton11.addActionListener(this);
+        buyFrame11.add(buyButton11);
+        buyFrame11.add(reserveButton11);
+        buyFrame11.add(cardBuyLabel11);
+        buyFrame11.setSize(300, 420);
+        buyFrame11.setLocation(400, 200);
+
+        buyButton12.setFont(myFont);
+        buyButton12.setBounds(105, 300, 90, 30);
+        buyButton12.setFocusable(false);
+        buyButton12.addActionListener(this);
+        reserveButton12.setFont(myFont);
+        reserveButton12.setBounds(105, 340, 90, 30);
+        reserveButton12.setFocusable(false);
+        reserveButton12.addActionListener(this);
+        buyFrame12.add(buyButton12);
+        buyFrame12.add(reserveButton12);
+        buyFrame12.add(cardBuyLabel12);
+        buyFrame12.setSize(300, 420);
+        buyFrame12.setLocation(400, 200);
 
         Font colorCountLabelFont = new Font("Ink Free", Font.BOLD, 20);
 
@@ -472,6 +746,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         coinLabel.setBorder(null);
         coinLabel.setBounds(1300, 300, 200, 200);
         coinLabel.addMouseListener(this);
+
+        gameLabel.add(showFrame);
 
         gameLabel.add(coinLabel);
 
@@ -1048,1077 +1324,57 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             coinLabel.add(get3Coin);
         }
 
-
         if (e.getSource() == cardLabel1) {
             buyFrame1.setVisible(true);
         }
 
         if (e.getSource() == cardLabel2) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel2.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel2);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame2.setVisible(true);
         }
 
         if (e.getSource() == cardLabel3) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel3.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel3.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel3.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel3);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame3.setVisible(true);
         }
 
         if (e.getSource() == cardLabel4) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel4.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel4.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel4.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel4);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame4.setVisible(true);
         }
 
         if (e.getSource() == cardLabel5) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel5.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel5.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel5.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel5);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame5.setVisible(true);
         } 
 
         if (e.getSource() == cardLabel6) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel6.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel6.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel6.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel6);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame6.setVisible(true);
         }
     
         if (e.getSource() == cardLabel7) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel7.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel7.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel7.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel7);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame7.setVisible(true);
         }
     
         if (e.getSource() == cardLabel8) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel8.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel8.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel8.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel8);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame8.setVisible(true);
         }
 
         if (e.getSource() == cardLabel9) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel9.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel9.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel9.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel9);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame9.setVisible(true);
         }
 
         if (e.getSource() == cardLabel10) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel10.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel10.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel10.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel10);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame10.setVisible(true);
         }
 
         if (e.getSource() == cardLabel11) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel11);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame11.setVisible(true);
         }
 
         if (e.getSource() == cardLabel12) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel12.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    if (player1.turn) {
-
-                        player1.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player1.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player1.specialRed++;
-                        else if (currentCard.specialCoin == "green") player1.specialGreen++;
-
-                        specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                        
-                        player1.turn = false;
-                        player2.turn = true;
-                        scoreLabel1.setText("Score:   " + player1.score);
-
-                        if (player1.score >= 15) {
-                            System.out.println(player1.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    } else {
-
-                        player2.score += currentCard.score;
-
-                        if (currentCard.specialCoin == "black") player2.specialBlack++;
-                        else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                        else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                        else if (currentCard.specialCoin == "red") player2.specialRed++;
-                        else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                        
-                        specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                        player1.turn = true;
-                        player2.turn = false;
-                        scoreLabel2.setText("Score:   " + player2.score);
-
-                        if (player2.score >= 15) {
-                            System.out.println(player2.name + " is the winner!") ;
-                            myFrame.dispose();
-                        }
-
-                    }
-
-                    int randomNumber;
-
-                    while (true) {
-
-                        randomNumber = random.nextInt(90);
-
-                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel12.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel12.setIcon(c[randomNumber].getCardIcon());
-                            break;
-                        }
-
-                    }
-
-                    buyFrame.dispose();
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel12);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame12.setVisible(true);
         }
+
+
+        // buy the reserved card...
+        
 
     }
 
@@ -2166,6 +1422,24 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         if (e.getSource() == cardLabel12) {
             cardLabel12.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
         }
+        if (e.getSource() == resLabel1) {
+            resLabel1.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == resLabel2) {
+            resLabel2.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == resLabel3) {
+            resLabel3.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == resLabel4) {
+            resLabel4.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == resLabel5) {
+            resLabel5.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
+        if (e.getSource() == resLabel6) {
+            resLabel6.setBorder(BorderFactory.createLineBorder(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)), 3));
+        }
     }
 
     @Override
@@ -2182,10 +1456,23 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         cardLabel10.setBorder(null);
         cardLabel11.setBorder(null);
         cardLabel12.setBorder(null);
+        resLabel1.setBorder(null);
+        resLabel2.setBorder(null);
+        resLabel3.setBorder(null);
+        resLabel4.setBorder(null);
+        resLabel5.setBorder(null);
+        resLabel6.setBorder(null);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+
+
+        // add buy button for reserved cards
+
+
+
 
         if (e.getSource() == buyButton1) {
 
@@ -2288,8 +1575,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                         && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
                         && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
                         && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
-                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                            cardLabel1.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
                             break;
                         }
 
@@ -2301,6 +1588,2643 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             }
         }
 
+        if (e.getSource() == buyButton2) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel2.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame2.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame2.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == buyButton3) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel3.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel3.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel3.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame3.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel3.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel3.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame3.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == buyButton4) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel4.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel4.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel4.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame4.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel4.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel4.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame4.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton5) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel5.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel5.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel5.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame5.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel5.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel5.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame5.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton6) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel6.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel6.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel6.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame6.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel6.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel6.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame6.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton7) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel7.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel7.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel7.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame7.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel7.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel7.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame7.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton8) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel8.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel8.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel8.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame8.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel8.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel8.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame8.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton9) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel9.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel9.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel9.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame9.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel9.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel9.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame9.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton10) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel10.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel10.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel10.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame10.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel10.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel10.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame10.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton11) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel11.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame11.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame11.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton11) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel11.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame11.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame11.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == showFrame) {
+            resFrame.setVisible(true);
+        }
+
+        if (e.getSource() == reserveButton1) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel1.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame1.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel1.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame1.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton2) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel2.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame2.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame2.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton3) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel3.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel3.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel3.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame3.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel3.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel3.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame3.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton4) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel4.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel4.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel4.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame4.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel4.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel4.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame4.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton5) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel5.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel5.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel5.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame5.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel5.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel5.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame5.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton6) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel6.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel6.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel6.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame6.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel6.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel6.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame6.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton7) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel7.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel7.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel7.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame7.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel1.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame7.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton8) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel8.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel8.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel8.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame8.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel8.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel8.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame8.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton9) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel9.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel9.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel9.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame9.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel9.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel9.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame9.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton10) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel10.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel10.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel10.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame10.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel10.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel10.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame10.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton11) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel11.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame11.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel11.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel11.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame11.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == reserveButton12) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel12.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            int randomNumber;
+
+            if (player1.turn) {
+
+                if (player1.resChance > 0) {
+
+                    player1.turn = false;
+                    player2.turn = true;
+
+                    player1.resChance--;
+
+                    r1 = 1;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel12.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel12.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame12.dispose();
+
+                }
+
+            } else {
+
+                if (player2.resChance > 0) {
+
+                    player1.turn = true;
+                    player2.turn = false;
+
+                    player2.resChance--;
+
+                    r1 = 2;
+
+                    if (res1) {
+                        resLabel1.setIcon(currentCard.getCardIcon());
+                        res1 = false;
+                    } else if (res2) {
+                        resLabel2.setIcon(currentCard.getCardIcon());
+                        res2 = false;
+                    } else if (res3) {
+                        resLabel3.setIcon(currentCard.getCardIcon());
+                        res3 = false;
+                    } else if (res4) {
+                        resLabel4.setIcon(currentCard.getCardIcon());
+                        res4 = false;
+                    } else if (res5) {
+                        resLabel5.setIcon(currentCard.getCardIcon());
+                        res5 = false;
+                    } else if (res6) {
+                        resLabel6.setIcon(currentCard.getCardIcon());
+                        res6 = false;
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel12.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel12.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+
+                    buyFrame12.dispose();
+
+                }
+            }
+        }
         
         if (e.getSource() == get2Coin) {
 
@@ -2411,7 +4335,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             updateCoin();
             get2Frame.dispose();
         }
-        
         
         if (e.getSource() == get3Coin) {
 
