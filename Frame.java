@@ -133,13 +133,47 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     JLabel get3Label = new JLabel();
     JLabel text2CoinLabel = new JLabel("Pick up your coin!", SwingConstants.CENTER);
     JLabel text3CoinLabel = new JLabel("Pick up your coins!", SwingConstants.CENTER);
-    JButton get2Coin = new JButton("Get 2 from 1 color!");
-    JButton get3Coin = new JButton("Get 3 from 3 different colors!");
+    JButton get2Coin = new JButton("Get 3 from 3 different colors!");
+    JButton get3Coin = new JButton("Get 2 from 1 color!");
 
     Random random = new Random();
 
+    Font myFont = new Font("Ink Free", Font.BOLD, 15);
+
+    JFrame buyFrame1 = new JFrame("Buy");
+    JButton buyButton1 = new JButton("Buy!");
+    JButton reserveButton1 = new JButton("Reserve");
 
     Frame() {
+        addCards();
+
+        cardBuyLabel1 = new JLabel(c[0].getCardIcon());
+        cardBuyLabel2 = new JLabel(c[1].getCardIcon());
+        cardBuyLabel3 = new JLabel(c[2].getCardIcon());
+        cardBuyLabel4 = new JLabel(c[3].getCardIcon());
+        cardBuyLabel5 = new JLabel(c[4].getCardIcon());
+        cardBuyLabel6 = new JLabel(c[5].getCardIcon());
+        cardBuyLabel7 = new JLabel(c[6].getCardIcon());
+        cardBuyLabel8 = new JLabel(c[7].getCardIcon());
+        cardBuyLabel9 = new JLabel(c[8].getCardIcon());
+        cardBuyLabel10 = new JLabel(c[9].getCardIcon());
+        cardBuyLabel11 = new JLabel(c[10].getCardIcon());
+        cardBuyLabel12 = new JLabel(c[11].getCardIcon());
+
+        buyButton1.setFont(myFont);
+        buyButton1.setBounds(105, 300, 90, 30);
+        buyButton1.setFocusable(false);
+        buyButton1.addActionListener(this);
+
+        reserveButton1.setFont(myFont);
+        reserveButton1.setBounds(105, 340, 90, 30);
+        reserveButton1.setFocusable(false);
+
+        buyFrame1.add(buyButton1);
+        buyFrame1.add(reserveButton1);
+        buyFrame1.add(cardBuyLabel1);
+        buyFrame1.setSize(300, 420);
+        buyFrame1.setLocation(400, 200);
 
         Font colorCountLabelFont = new Font("Ink Free", Font.BOLD, 20);
 
@@ -279,21 +313,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
         player1.turn = true;
         player2.turn = false;
-
-        addCards();
-
-        cardBuyLabel1 = new JLabel(c[0].getCardIcon());
-        cardBuyLabel2 = new JLabel(c[1].getCardIcon());
-        cardBuyLabel3 = new JLabel(c[2].getCardIcon());
-        cardBuyLabel4 = new JLabel(c[3].getCardIcon());
-        cardBuyLabel5 = new JLabel(c[4].getCardIcon());
-        cardBuyLabel6 = new JLabel(c[5].getCardIcon());
-        cardBuyLabel7 = new JLabel(c[6].getCardIcon());
-        cardBuyLabel8 = new JLabel(c[7].getCardIcon());
-        cardBuyLabel9 = new JLabel(c[8].getCardIcon());
-        cardBuyLabel10 = new JLabel(c[9].getCardIcon());
-        cardBuyLabel11 = new JLabel(c[10].getCardIcon());
-        cardBuyLabel12 = new JLabel(c[11].getCardIcon());
 
         String name1 = JOptionPane.showInputDialog("Player1, Enter you name:");
         if (name1.isEmpty()) name1 = "Player1";
@@ -484,6 +503,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         setVisible(true);
     }
 
+    public void updateCoinLabels() {
+        black1Label.setText("BLACK: " + this.blackCount);
+        black2Label.setText("BLACK: " + this.blackCount);
+        white1Label.setText("WHITE: " + this.whiteCount);
+        white2Label.setText("WHITE: " + this.whiteCount);
+        blue1Label.setText("BLUE: " + this.blueCount);
+        blue2Label.setText("BLUE: " + this.blueCount);
+        red1Label.setText("RED: " + this.redCount);
+        red2Label.setText("RED: " + this.redCount);
+        green1Label.setText("GREEN: " + this.greenCount);
+        green2Label.setText("GREEN: " + this.greenCount);
+    }
+
     public void updateCoin() {
         coinLabel1.setText("Coins:               " + player1.blackCount + "             " + player1.whiteCount + "             " + player1.blueCount + "             " + player1.redCount + "             " + player1.greenCount + "             " + player1.goldCount);
         coinLabel2.setText("Coins:               " + player2.blackCount + "             " + player2.whiteCount + "             " + player2.blueCount + "             " + player2.redCount + "             " + player2.greenCount + "             " + player2.goldCount);
@@ -493,273 +525,492 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         // B --> black / b --> blue
 
         c[0] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\01.jpg", "white", 1);
+        c[0].green = 4;
         c[0].price = "4g";
 
         c[1] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\02.jpg", "blue", 1);
+        c[1].red = 4;
         c[1].price = "4r";
 
         c[2] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\03.jpg", "green", 1);
+        c[2].black = 4;
         c[2].price = "4B";
 
         c[3] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\04.jpg", "red", 1);
+        c[3].white = 4;
         c[3].price = "4w";
 
         c[4] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\05.jpg", "black", 1);
+        c[4].blue = 4;
         c[4].price = "4b";
 
         c[5] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\06.jpg", "white", 0);
+        c[5].white = 3;
+        c[5].blue = 4;
+        c[5].black = 1;
         c[5].price = "3w4b1B";
         
         c[6] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\07.jpg", "blue", 0);
+        c[6].blue = 1;
+        c[6].green = 3;
+        c[6].red = 1;
         c[6].price = "1b3g1r";
         
         c[7] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\08.jpg", "green", 0);
-        c[7].price = "41w3b1g";
+        c[7].white = 1;
+        c[7].blue = 3;
+        c[7].green = 1;
+        c[7].price = "1w3b1g";
         
         c[8] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\09.jpg", "red", 0);
+        c[8].white = 1;
+        c[8].red = 1;
+        c[8].black = 3;
         c[8].price = "1w1r3B";
         
         c[9] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\010.jpg", "black", 0);
+        c[9].green = 1;
+        c[9].red = 3;
+        c[9].black = 1;
         c[9].price = "1g3r1B";
         
         c[10] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\011.jpg", "white", 0);
+        c[10].blue = 3;
         c[10].price = "3b";
-        
+
         c[11] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\012.jpg", "blue", 0);
+        c[11].black = 3;
         c[11].price = "3B";
         
         c[12] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\013.jpg", "green", 0);
+        c[12].red = 3;
         c[12].price = "3r";
 
         c[13] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\014.jpg", "red", 0);
+        c[13].white = 3;
         c[13].price = "3w";
 
         c[14] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\015.jpg", "black", 0);
+        c[14].green = 3;
         c[14].price = "3g";
 
         c[15] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\016.jpg", "white", 0);
+        c[15].blue = 2;
+        c[15].green = 2;
+        c[15].black = 1;
         c[15].price = "2b2g1B";
 
+
+        // Continue... your mother is white her ass is tight
+
+
         c[16] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\017.jpg", "blue", 0);
+        c[16].white = 1;
+        c[16].green = 2;
+        c[16].red = 2;
         c[16].price = "1w2g2r";
 
         c[17] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\018.jpg", "green", 0);
+        c[17].blue = 1;
+        c[17].red = 2;
+        c[17].black = 2;
         c[17].price = "1b2r2B";
 
         c[18] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\019.jpg", "red", 0);
+        c[18].white = 2;
+        c[18].green = 1;
+        c[18].black = 2;
         c[18].price = "2w1g2B";
 
         c[19] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\020.jpg", "black", 0);
+        c[19].white = 2;
+        c[19].blue = 2;
+        c[19].red = 1;
         c[19].price = "2w2b1r";
 
         c[20] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\021.jpg", "white", 0);
+        c[20].blue = 2;
+        c[20].black = 2;
         c[20].price = "2b2B";
 
         c[21] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\022.jpg", "blue", 0);
+        c[21].green = 2;
+        c[21].black = 2;
         c[21].price = "2g2B";
 
         c[22] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\023.jpg", "green", 0);
+        c[22].blue = 2;
+        c[22].red = 2;
         c[22].price = "2b2r";
 
         c[23] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\024.jpg", "red", 0);
+        c[23].white = 2;
+        c[23].red = 2;
         c[23].price = "2w2r";
 
         c[24] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\025.jpg", "black", 0);
+        c[24].white = 2;
+        c[24].green = 2;
         c[24].price = "2w2g";
 
         c[25] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\026.jpg", "white", 0);
+        c[25].blue = 1;
+        c[25].green = 2;
+        c[25].red = 1;
+        c[25].black = 1;
         c[25].price = "1b2g1r1B";
 
         c[26] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\027.jpg", "blue", 0);
+        c[26].white = 1;
+        c[26].green = 1;
+        c[26].red = 2;
+        c[26].black = 1;
         c[26].price = "1w1g2r1B";
 
         c[27] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\028.jpg", "green", 0);
+        c[27].white = 1;
+        c[27].blue = 1;
+        c[27].red = 1;
+        c[27].black = 2;
         c[27].price = "1w1b1r2B";
 
         c[28] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\029.jpg", "red", 0);
+        c[28].white = 2;
+        c[28].blue = 1;
+        c[28].green = 1;
+        c[28].black = 1;
         c[28].price = "2w1b1g1B";
 
         c[29] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\030.jpg", "black", 0);
+        c[29].white = 1;
+        c[29].blue = 2;
+        c[29].green = 1;
+        c[29].red = 1;
         c[29].price = "1w2b1g1r";
 
         c[30] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\031.jpg", "white", 0);
+        c[30].red = 2;
+        c[30].black = 1;
         c[30].price = "2r1B";
 
         c[31] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\032.jpg", "blue", 0);
+        c[31].white = 1;
+        c[31].black = 2;
         c[31].price = "1w2B";
 
         c[32] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\033.jpg", "green", 0);
+        c[32].white = 2;
+        c[32].blue = 1;
         c[32].price = "2w1b";
 
         c[33] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\034.jpg", "red", 0);
+        c[33].black = 2;
+        c[33].green = 1;
         c[33].price = "2b1g";
 
         c[34] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\035.jpg", "black", 0);
+        c[34].green = 2;
+        c[34].red = 1;
         c[34].price = "2g1r";
 
         c[35] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\036.jpg", "white", 0);
+        c[35].blue = 1;
+        c[35].green = 1;
+        c[35].red = 1;
+        c[35].black = 1;
         c[35].price = "1b1g1r1B";
 
         c[36] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\037.jpg", "blue", 0);
+        c[36].white = 1;
+        c[36].green = 1;
+        c[36].red = 1;
+        c[36].black = 1;
         c[36].price = "1w1g1r1B";
 
         c[37] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\038.jpg", "green", 0);
+        c[37].white = 1;
+        c[37].blue = 1;
+        c[37].red = 1;
+        c[37].black = 1;
         c[37].price = "1w1b1r1B";
 
         c[38] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\039.jpg", "red", 0);
+        c[38].white = 1;
+        c[38].blue = 1;
+        c[38].green = 1;
+        c[38].black = 1;
         c[38].price = "1w1b1g1B";
 
         c[39] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\040.jpg", "black", 0);
+        c[39].white = 1;
+        c[39].blue = 1;
+        c[39].green = 1;
+        c[39].red = 1;
         c[39].price = "1w1b1g1r";
 
         c[40] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\041.jpg", "white", 1);
+        c[40].green = 3;
+        c[40].red = 2;
+        c[40].black = 2;
         c[40].price = "3g2r2B";
 
         c[41] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\042.jpg", "blue", 1);
+        c[41].blue = 2;
+        c[41].green = 2;
+        c[41].red = 3;
         c[41].price = "2b2g3r";
 
         c[42] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\043.jpg", "green", 1);
+        c[42].white = 2;
+        c[42].blue = 3;
+        c[42].black = 2;
         c[42].price = "2w3b2B";
 
         c[43] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\044.jpg", "red", 1);
+        c[43].white = 2;
+        c[43].red = 2;
+        c[43].black = 3;
         c[43].price = "2w2r3B";
 
         c[44] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\045.jpg", "black", 1);
+        c[44].white = 3;
+        c[44].blue = 2;
+        c[44].green = 2;
         c[44].price = "3w2b2g";
 
         c[45] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\046.jpg", "white", 1);
+        c[45].white = 2;
+        c[45].blue = 2;
+        c[45].red = 3;
         c[45].price = "2w3b3r";
 
         c[46] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\047.jpg", "blue", 1);
+        c[46].blue = 2;
+        c[46].green = 3;
+        c[46].black = 3;
         c[46].price = "2b3g3B";
 
         c[47] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\048.jpg", "green", 1);
+        c[47].white = 3;
+        c[47].green = 2;
+        c[47].red = 3;
         c[47].price = "3w2g3r";
 
         c[48] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\049.jpg", "red", 1);
+        c[48].blue = 3;
+        c[48].red = 2;
+        c[48].black = 3;
         c[48].price = "3b2r3B";
 
         c[49] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\050.jpg", "black", 1);
+        c[49].white = 3;
+        c[49].green = 3;
+        c[49].black = 2;
         c[49].price = "3w3g2B";
 
         c[50] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\051.jpg", "white", 3);
+        c[50].white = 6;
         c[50].price = "6w";
 
         c[51] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\052.jpg", "blue", 3);
+        c[51].blue = 6;
         c[51].price = "6b";
 
         c[52] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\053.jpg", "green", 3);
+        c[52].green = 6;
         c[52].price = "6g";
 
         c[53] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\054.jpg", "red", 3);
+        c[53].red = 6;
         c[53].price = "6r";
 
         c[54] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\055.jpg", "black", 3);
+        c[54]. black = 6;
         c[54].price = "6B";
 
         c[55] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\056.jpg", "white", 2);
+        c[55].green = 1;
+        c[55].red = 4;
+        c[55].black = 2;
         c[55].price = "1g4r2B";
 
         c[56] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\057.jpg", "blue", 2);
+        c[56].white = 2;
+        c[56].red = 1;
+        c[56].black = 4;
         c[56].price = "2w1r4B";
 
         c[57] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\058.jpg", "green", 2);
+        c[57].white = 4;
+        c[57].blue = 2;
+        c[57].black = 1;
         c[57].price = "4w2b1B";
 
         c[58] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\059.jpg", "red", 2);
+        c[58].white = 1;
+        c[58].blue = 4;
+        c[58].green = 2;
         c[58].price = "1w4b2g";
 
         c[59] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\060.jpg", "black", 2);
+        c[59].blue = 1;
+        c[59].green = 4;
+        c[59].red = 2;
         c[59].price = "1b4g2r";
 
         c[60] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\061.jpg", "white", 2);
+        c[60].red = 5;
         c[60].price = "5r";
 
         c[61] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\062.jpg", "blue", 2);
+        c[61].blue = 5;
         c[61].price = "5b";
 
         c[62] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\063.jpg", "green", 2);
+        c[62].green = 5;
         c[62].price = "5g";
 
         c[63] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\064.jpg", "red", 2);
+        c[63].black = 5;
         c[63].price = "5B";
 
         c[64] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\065.jpg", "black", 2);
+        c[64].white = 5;
         c[64].price = "5w";
 
         c[65] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\066.jpg", "white", 2);
+        c[65].red = 5;
+        c[65].black = 3;
         c[65].price = "5r3B";
 
         c[66] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\067.jpg", "blue", 2);
+        c[66].white = 5;
+        c[66].blue = 3;
         c[66].price = "5w3b";
 
         c[67] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\068.jpg", "green", 2);
+        c[67].blue = 5;
+        c[67].green = 3;
         c[67].price = "5b3g";
 
         c[68] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\069.jpg", "red", 2);
+        c[68].white = 3;
+        c[68].black = 5;
         c[68].price = "3w5B";
 
         c[69] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\070.jpg", "black", 2);
+        c[69].green = 5;
+        c[69].red = 3;
         c[69].price = "5g3r";
 
         c[70] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\071.jpg", "white", 3);
+        c[70].blue = 3;
+        c[70].green = 3;
+        c[70].red = 5;
+        c[70].black = 3;
         c[70].price = "3b3g5r3B";
 
         c[71] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\072.jpg", "blue", 3);
+        c[71].white = 3;
+        c[71].green = 3;
+        c[71].red = 3;
+        c[71].black = 5;
         c[71].price = "3w3g3r5B";
 
         c[72] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\073.jpg", "green", 3);
+        c[72].white = 5;
+        c[72].blue = 3;
+        c[72].red = 3;
+        c[72].black = 3;
         c[72].price = "5w3b3r3B";
 
         c[73] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\074.jpg", "red", 3);
+        c[73].white = 3;
+        c[73].blue = 5;
+        c[73].green = 3;
+        c[73].black = 3;
         c[73].price = "3w5b3g3B";
 
         c[74] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\075.jpg", "black", 3);
+        c[74].white = 3;
+        c[74].blue = 3;
+        c[74].green = 5;
+        c[74].red = 3;
         c[74].price = "3w3b5g3r";
 
         c[75] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\076.jpg", "white", 4);
+        c[75].black = 7;
         c[75].price = "7B";
 
         c[76] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\077.jpg", "blue", 4);
+        c[76].white = 7;
         c[76].price = "7w";
 
         c[77] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\078.jpg", "green", 4);
+        c[77].blue = 7;
         c[77].price = "7b";
 
         c[78] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\079.jpg", "red", 4);
+        c[78].green = 7;
         c[78].price = "7g";
 
         c[79] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\080.jpg", "black", 4);
+        c[79].red = 7;
         c[79].price = "7r";
 
         c[80] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\081.jpg", "white", 4);
+        c[80].white = 3;
+        c[80].red = 3;
+        c[80].black = 6;
         c[80].price = "3w3r6B";
 
         c[81] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\082.jpg", "blue", 4);
+        c[81].white = 6;
+        c[81].blue = 3;
+        c[81].black = 3;
         c[81].price = "6w3b3B";
 
         c[82] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\083.jpg", "green", 4);
+        c[82].white = 3;
+        c[82].blue = 6;
+        c[82].green = 3;
         c[82].price = "3w6b3g";
 
         c[83] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\084.jpg", "red", 4);
+        c[83].blue = 3;
+        c[83].green = 6;
+        c[83].red = 3;
         c[83].price = "3b6g3r";
 
         c[84] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\085.jpg", "black", 4);
+        c[84].green = 3;
+        c[84].red = 6;
+        c[84].black = 3;
         c[84].price = "3g6r3B";
 
         c[85] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\086.jpg", "white", 5);
+        c[85].white = 3;
+        c[85].black = 7;
         c[85].price = "3w7B";
 
         c[86] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\087.jpg", "blue", 5);
+        c[86].white = 7;
+        c[86].blue = 3;
         c[86].price = "7w3b";
 
         c[87] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\088.jpg", "green", 5);
+        c[87].blue = 7;
+        c[87].green = 3;
         c[87].price = "7b3g";
 
         c[88] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\089.jpg", "red", 5);
+        c[88].green = 7;
+        c[88].red = 3;
         c[88].price = "7g3r";
 
         c[89] = new Card("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\cards\\090.jpg", "black", 5);
+        c[89].red = 7;
+        c[89].black = 3;
         c[89].price = "7r3B";
 
 
@@ -789,6 +1040,9 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     public void mouseClicked(MouseEvent e) {
 
         if (e.getSource() == coinLabel) {
+
+            updateCoinLabels();
+
             coinLabel.setIcon(null);
             coinLabel.add(get2Coin);
             coinLabel.add(get3Coin);
@@ -796,174 +1050,13 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
         if (e.getSource() == cardLabel1) {
-            JFrame buyFrame = new JFrame("Buy");
-            JButton buyButton = new JButton("Buy!");
-            JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
-
-            buyButton.setFont(myFont);
-            buyButton.setBounds(105, 300, 90, 30);
-            buyButton.setFocusable(false);
-            buyButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-
-                    Card currentCard = new Card();
-
-                    for (int i = 0; i < ICON_SIZE; i++) {
-                        if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
-                            currentCard = c[i];
-                            break;
-                        }
-                    }
-                    
-                    boolean s = true;
-                    int randomNumber;
-                    
-                    if (player1.turn) {
-
-                        // add a condition, if I have enough coin then buy the card and add special coin
-                        for (int i = 0; i < currentCard.price.length(); i += 2) {
-                            if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            }
-                        }
-
-                        if (s) {
-                            
-                            player1.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player1.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player1.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player1.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player1.specialRed++;
-                            else if (currentCard.specialCoin == "green") player1.specialGreen++;
-                            
-                            specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
-                            
-                            player1.turn = false;
-                            player2.turn = true;
-                            scoreLabel1.setText("Score:   " + player1.score);
-
-                            if (player1.score >= 15) {
-                                System.out.println(player1.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                            while (true) {
-
-                                randomNumber = random.nextInt(90);
-
-                                if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                                && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                                && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                                && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                    cardLabel1.setIcon(c[randomNumber].getCardIcon());
-                                    cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
-                                    break;
-                                }
-
-                            }
-                            
-                            buyFrame.dispose();
-
-                        }
-
-                    } else {
-
-                        s = true;
-
-                        for (int i = 0; i < currentCard.price.length(); i += 2) {
-                            if (currentCard.price.charAt(i + 1) == 'B' && player1.blackCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'w' && player1.whiteCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'b' && player1.blueCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'r' && player1.redCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            } else if (currentCard.price.charAt(i + 1) == 'g' && player1.greenCount < currentCard.price.charAt(i)) {
-                                s = false;
-                                break;
-                            }
-                        }
-
-                        if (s) {
-                            
-                            player2.score += currentCard.score;
-
-                            if (currentCard.specialCoin == "black") player2.specialBlack++;
-                            else if (currentCard.specialCoin == "white") player2.specialWhite++;
-                            else if (currentCard.specialCoin == "blue") player2.specialBlue++;
-                            else if (currentCard.specialCoin == "red") player2.specialRed++;
-                            else if (currentCard.specialCoin == "green") player2.specialGreen++;
-                            
-                            specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
-                            player1.turn = true;
-                            player2.turn = false;
-                            scoreLabel2.setText("Score:   " + player2.score);
-
-                            if (player2.score >= 15) {
-                                System.out.println(player2.name + " is the winner!") ;
-                                myFrame.dispose();
-                            }
-
-                            while (true) {
-
-                                randomNumber = random.nextInt(90);
-
-                                if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
-                                && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
-                                && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
-                                && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
-                                    cardLabel2.setIcon(c[randomNumber].getCardIcon());
-                                    cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
-                                    break;
-                                }
-
-                            }
-                            
-                            buyFrame.dispose();
-
-                        }
-                    }
-                }
-            });
-
-            reserveButton.setFont(myFont);
-            reserveButton.setBounds(105, 340, 90, 30);
-            reserveButton.setFocusable(false);
-
-            buyFrame.add(buyButton);
-            buyFrame.add(reserveButton);
-            buyFrame.add(cardBuyLabel1);
-            buyFrame.setSize(300, 420);
-            buyFrame.setLocation(400, 200);
-            buyFrame.setVisible(true);
+            buyFrame1.setVisible(true);
         }
 
         if (e.getSource() == cardLabel2) {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1061,7 +1154,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1159,7 +1251,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1257,7 +1348,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1355,7 +1445,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1453,7 +1542,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1551,7 +1639,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1649,7 +1736,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1747,7 +1833,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1845,7 +1930,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -1943,7 +2027,6 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             JFrame buyFrame = new JFrame("Buy");
             JButton buyButton = new JButton("Buy!");
             JButton reserveButton = new JButton("Reserve");
-            Font myFont = new Font("Ink Free", Font.BOLD, 15);
             
             buyButton.setFont(myFont);
             buyButton.setBounds(105, 300, 90, 30);
@@ -2103,8 +2186,129 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == buyButton1) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel1.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        System.out.println(player1.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel1.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel1.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame1.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        System.out.println(player2.name + " is the winner!") ;
+                        myFrame.dispose();
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel2.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel2.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame1.dispose();
+
+                }
+            }
+        }
+
         
         if (e.getSource() == get2Coin) {
+
+            if (this.blackCount == 0) black1.setEnabled(false);
+            if (this.whiteCount == 0) white1.setEnabled(false);
+            if (this.blueCount == 0) blue1.setEnabled(false);
+            if (this.redCount == 0) red1.setEnabled(false);
+            if (this.greenCount == 0) green1.setEnabled(false);
             
             chanceCoin = 3;
             get2Frame.setVisible(true);
@@ -2210,6 +2414,12 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         
         
         if (e.getSource() == get3Coin) {
+
+            if (this.blackCount < 4) black2.setEnabled(false);
+            if (this.whiteCount < 4) white2.setEnabled(false);
+            if (this.blueCount < 4) blue2.setEnabled(false);
+            if (this.redCount < 4) red2.setEnabled(false);
+            if (this.greenCount < 4) green2.setEnabled(false);
             
             get3Frame.setVisible(true);
             coinLabel.remove(get2Coin);
@@ -2311,4 +2521,5 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     }
 
 }
+
 
