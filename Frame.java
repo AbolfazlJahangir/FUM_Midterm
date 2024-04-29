@@ -39,15 +39,17 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     ImageIcon s1 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20001.jpg");
     ImageIcon s2 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20002.jpg");
     ImageIcon s3 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20003.jpg");
-    ImageIcon s4 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20004.jpg");
-    ImageIcon s5 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20005.jpg");
-    ImageIcon s6 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20006.jpg");
-    ImageIcon s7 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20007.jpg");
-    ImageIcon s8 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20008.jpg");
-    ImageIcon s9 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20009.jpg");
-    ImageIcon s10 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20010.jpg");
-    ImageIcon s11 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20011.jpg");
-    ImageIcon[] specials = {s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11};
+    // ImageIcon s4 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20004.jpg");
+    // ImageIcon s5 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20005.jpg");
+    // ImageIcon s6 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20006.jpg");
+    // ImageIcon s7 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20007.jpg");
+    // ImageIcon s8 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20008.jpg");
+    // ImageIcon s9 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20009.jpg");
+    // ImageIcon s10 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20010.jpg");
+    // ImageIcon s11 = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\specials\\rsz_20011.jpg");
+    Card sp1 = new Card();
+    Card sp2 = new Card();
+    Card sp3 = new Card();
 
     ImageIcon[] arrayIcons = new ImageIcon[ICON_SIZE];
     Card[] c = new Card[90];
@@ -226,6 +228,13 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
     Frame() {
         addCards();
+
+        sp1.blue = 4;
+        sp1.white = 4;
+        sp2.blue = 4;
+        sp2.green = 4;
+        sp3.red = 4;
+        sp3.green = 4;
 
         cardBuyLabel1 = new JLabel(c[0].getCardIcon());
         cardBuyLabel2 = new JLabel(c[1].getCardIcon());
@@ -1416,6 +1425,24 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         winnerFrame.setVisible(true);
     }
 
+    public void specialCard(Player player) {
+        if (player.blueCount >= sp1.blue && player.whiteCount >= sp1.white) {
+            player.score += sp1.score;
+            specialCardLabel1.setIcon(null);
+            specialCardLabel1.setOpaque(false);
+        }
+        if (player.blueCount >= sp2.blue && player.greenCount >= sp2.green) {
+            player.score += sp2.score;
+            specialCardLabel2.setIcon(null);
+            specialCardLabel2.setOpaque(false);
+        }
+        if (player.redCount >= sp3.red && player.greenCount >= sp3.green) {
+            player.score += sp3.score;
+            specialCardLabel3.setIcon(null);
+            specialCardLabel3.setOpaque(false);
+        }
+    }
+
     public void updateWhoRes() {
         if (r1 == 1) buyResButton1.setEnabled(false);
         else buyResButton1.setEnabled(true);
@@ -1656,6 +1683,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
 
+                    specialCard(player1);
+
                     currentCard = null;
                     
                     specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
@@ -1694,6 +1723,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -1745,6 +1776,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -1784,6 +1817,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -1835,6 +1870,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -1874,6 +1911,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -1925,6 +1964,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -1964,6 +2005,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2015,6 +2058,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2054,6 +2099,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2105,6 +2152,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2144,6 +2193,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2195,6 +2246,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2245,6 +2298,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2309,6 +2364,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2359,6 +2416,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2423,6 +2482,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2473,6 +2534,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2537,6 +2600,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2587,6 +2652,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2651,6 +2718,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2701,6 +2770,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2765,6 +2836,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2815,6 +2888,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2879,6 +2954,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -2929,6 +3006,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -2993,6 +3072,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -3043,6 +3124,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -3107,6 +3190,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -3157,6 +3242,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -3221,6 +3308,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -3271,6 +3360,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -3335,6 +3426,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -3385,6 +3478,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -3449,6 +3544,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player1.specialBlue++;
                     else if (currentCard.specialCoin == "red") player1.specialRed++;
                     else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
 
                     currentCard = null;
                     
@@ -3499,6 +3596,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     else if (currentCard.specialCoin == "blue") player2.specialBlue++;
                     else if (currentCard.specialCoin == "red") player2.specialRed++;
                     else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
 
                     currentCard = null;
                     
@@ -3529,6 +3628,124 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     }
                     
                     buyFrame11.dispose();
+
+                }
+            }
+        }
+        
+        if (e.getSource() == buyButton12) {
+
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (cardBuyLabel12.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            int randomNumber;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+                    
+                    specialCard(player1);
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        myFrame.dispose();
+                        winner(player1);
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel12.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel12.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame12.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+                    
+                    specialCard(player2);
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        myFrame.dispose();
+                        winner(player2);
+                    }
+
+                    while (true) {
+
+                        randomNumber = random.nextInt(90);
+
+                        if (c[randomNumber].getCardIcon() != cardLabel1.getIcon() && c[randomNumber].getCardIcon() != cardLabel2.getIcon() && c[randomNumber].getCardIcon() != cardLabel3.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel4.getIcon() && c[randomNumber].getCardIcon() != cardLabel5.getIcon() && c[randomNumber].getCardIcon() != cardLabel6.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel7.getIcon() && c[randomNumber].getCardIcon() != cardLabel8.getIcon() && c[randomNumber].getCardIcon() != cardLabel9.getIcon()
+                        && c[randomNumber].getCardIcon() != cardLabel10.getIcon() && c[randomNumber].getCardIcon() != cardLabel11.getIcon() && c[randomNumber].getCardIcon() != cardLabel12.getIcon() && c[randomNumber] != null) {
+                            cardLabel12.setIcon(c[randomNumber].getCardIcon());
+                            cardBuyLabel12.setIcon(c[randomNumber].getCardIcon());
+                            break;
+                        }
+
+                    }
+                    
+                    buyFrame12.dispose();
 
                 }
             }
