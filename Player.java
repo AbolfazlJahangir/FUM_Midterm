@@ -6,6 +6,7 @@ public class Player {
     int specialBlack = 0, specialWhite = 0, specialBlue = 0, specialRed = 0, specialGreen = 0;
     int score = 0;
     boolean turn;
+    int resChance = 3;
     
     Player(int codePlayer) {
         this.codePlayer = codePlayer;
