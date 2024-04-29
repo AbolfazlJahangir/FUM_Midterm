@@ -98,6 +98,12 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     JFrame buyResFrame4 = new JFrame("Buy the reserved card!");
     JFrame buyResFrame5 = new JFrame("Buy the reserved card!");
     JFrame buyResFrame6 = new JFrame("Buy the reserved card!");
+    JLabel l1 = new JLabel();
+    JLabel l2 = new JLabel();
+    JLabel l3 = new JLabel();
+    JLabel l4 = new JLabel();
+    JLabel l5 = new JLabel();
+    JLabel l6 = new JLabel();
     JLabel buyResLabel1 = new JLabel();
     JLabel buyResLabel2 = new JLabel();
     JLabel buyResLabel3 = new JLabel();
@@ -244,28 +250,121 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         resFrame.setSize(510, 425);
         resFrame.setLocation(400, 250);
 
+        l1.setBounds(0, 0, 300, 420);
+        l1.setBackground(Color.magenta);
+        l1.setOpaque(true);
+        l2.setBounds(0, 0, 300, 420);
+        l2.setBackground(Color.magenta);
+        l2.setOpaque(true);
+        l3.setBounds(0, 0, 300, 420);
+        l3.setBackground(Color.magenta);
+        l3.setOpaque(true);
+        l4.setBounds(0, 0, 300, 420);
+        l4.setBackground(Color.magenta);
+        l4.setOpaque(true);
+        l5.setBounds(0, 0, 300, 420);
+        l5.setBackground(Color.magenta);
+        l5.setOpaque(true);
+        l6.setBounds(0, 0, 300, 420);
+        l6.setBackground(Color.magenta);
+        l6.setOpaque(true);
+
+        // 300 420
+        buyResLabel1.setBounds(85, 100, 130, 180);
+        buyResLabel2.setBounds(85, 100, 130, 180);
+        buyResLabel3.setBounds(85, 100, 130, 180);
+        buyResLabel4.setBounds(85, 100, 130, 180);
+        buyResLabel5.setBounds(85, 100, 130, 180);
+        buyResLabel6.setBounds(85, 100, 130, 180);
+
+        buyResButton1.setFont(myFont);
+        buyResButton1.setBounds(105, 300, 90, 30);
+        buyResButton1.setFocusable(false);
+        buyResButton1.addActionListener(this);
+
+        buyResButton2.setFont(myFont);
+        buyResButton2.setBounds(105, 300, 90, 30);
+        buyResButton2.setFocusable(false);
+        buyResButton2.addActionListener(this);
+        
+        buyResButton3.setFont(myFont);
+        buyResButton3.setBounds(105, 300, 90, 30);
+        buyResButton3.setFocusable(false);
+        buyResButton3.addActionListener(this);
+        
+        buyResButton4.setFont(myFont);
+        buyResButton4.setBounds(105, 300, 90, 30);
+        buyResButton4.setFocusable(false);
+        buyResButton4.addActionListener(this);
+        
+        buyResButton5.setFont(myFont);
+        buyResButton5.setBounds(105, 300, 90, 30);
+        buyResButton5.setFocusable(false);
+        buyResButton5.addActionListener(this);
+        
+        buyResButton6.setFont(myFont);
+        buyResButton6.setBounds(105, 300, 90, 30);
+        buyResButton6.setFocusable(false);
+        buyResButton6.addActionListener(this);
+        
+        l1.add(buyResButton1);
+        l1.add(buyResLabel1);
+        
+        l2.add(buyResButton2);
+        l2.add(buyResLabel2);
+        
+        l3.add(buyResButton3);
+        l3.add(buyResLabel3);
+        
+        l4.add(buyResButton4);
+        l4.add(buyResLabel4);
+        
+        l5.add(buyResButton5);
+        l5.add(buyResLabel5);
+        
+        l6.add(buyResButton6);
+        l6.add(buyResLabel6);
+
+        buyResFrame1.add(l1);
+        buyResFrame1.setSize(300, 420);
+        buyResFrame1.setLocation(400, 200);
+        
+        buyResFrame2.add(l2);
+        buyResFrame2.setSize(300, 420);
+        buyResFrame2.setLocation(400, 200);
+        
+        buyResFrame3.add(l3);
+        buyResFrame3.setSize(300, 420);
+        buyResFrame3.setLocation(400, 200);
+        
+        buyResFrame4.add(l4);
+        buyResFrame4.setSize(300, 420);
+        buyResFrame4.setLocation(400, 200);
+        
+        buyResFrame5.add(l5);
+        buyResFrame5.setSize(300, 420);
+        buyResFrame5.setLocation(400, 200);
+        
+        buyResFrame6.add(l6);
+        buyResFrame6.setSize(300, 420);
+        buyResFrame6.setLocation(400, 200);
+
         resLabel1.setBounds(50, 10, 130, 180);
-        resLabel1.setBackground(Color.blue);
         resLabel1.setOpaque(true);
         resLabel1.addMouseListener(this);
         resLabel2.setBounds(190, 10, 130, 180);
-        resLabel2.setBackground(Color.blue);
         resLabel2.setOpaque(true);
         resLabel2.addMouseListener(this);
         resLabel3.setBounds(330, 10, 130, 180);
-        resLabel3.setBackground(Color.blue);
         resLabel3.setOpaque(true);
         resLabel3.addMouseListener(this);
         resLabel4.setBounds(50, 200, 130, 180);
-        resLabel4.setBackground(Color.blue);
         resLabel4.setOpaque(true);
         resLabel4.addMouseListener(this);
         resLabel5.setBounds(190, 200, 130, 180);
-        resLabel5.setBackground(Color.blue);
         resLabel5.setOpaque(true);
         resLabel5.addMouseListener(this);
         resLabel6.setBounds(330, 200, 130, 180);
-        resLabel6.setBackground(Color.blue);
         resLabel6.setOpaque(true);
         resLabel6.addMouseListener(this);
 
@@ -797,6 +896,15 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         coinLabel2.setText("Coins:               " + player2.blackCount + "             " + player2.whiteCount + "             " + player2.blueCount + "             " + player2.redCount + "             " + player2.greenCount + "             " + player2.goldCount);
     }
 
+    public void updateResLabel() {
+        buyResLabel1.setIcon(resLabel1.getIcon());
+        buyResLabel2.setIcon(resLabel2.getIcon());
+        buyResLabel3.setIcon(resLabel3.getIcon());
+        buyResLabel4.setIcon(resLabel4.getIcon());
+        buyResLabel5.setIcon(resLabel5.getIcon());
+        buyResLabel6.setIcon(resLabel6.getIcon());
+    }
+
     private void addCards() {
         // B --> black / b --> blue
 
@@ -1288,8 +1396,39 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         c[89].red = 7;
         c[89].black = 3;
         c[89].price = "7r3B";
+    }
 
+    public void winner(Player player) {
+        JFrame winnerFrame = new JFrame("WINNER!");
+        JLabel winnerLabel = new JLabel();
+        JLabel winnerNameLabel = new JLabel("The winner is " + player.name + "!!!", SwingConstants.CENTER);
+        winnerFrame.setSize(600, 300);
+        winnerFrame.setLocation(400, 300);
+        winnerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        winnerLabel.setBounds(0, 0, 600, 300);
+        winnerLabel.setBackground(new Color(242, 140, 40));
+        winnerLabel.setOpaque(true);
+        winnerNameLabel.setBounds(50, 50, 500, 100);
+        winnerNameLabel.setFont(new Font("MV Boli", Font.BOLD, 38));
+        winnerNameLabel.setForeground(new Color(0, 71, 171));
+        winnerLabel.add(winnerNameLabel);
+        winnerFrame.add(winnerLabel);
+        winnerFrame.setVisible(true);
+    }
 
+    public void updateWhoRes() {
+        if (r1 == 1) buyResButton1.setEnabled(false);
+        else buyResButton1.setEnabled(true);
+        if (r2 == 1) buyResButton2.setEnabled(false);
+        else buyResButton2.setEnabled(true);
+        if (r3 == 1) buyResButton3.setEnabled(false);
+        else buyResButton3.setEnabled(true);
+        if (r4 == 1) buyResButton4.setEnabled(false);
+        else buyResButton4.setEnabled(true);
+        if (r5 == 1) buyResButton5.setEnabled(false);
+        else buyResButton5.setEnabled(true);
+        if (r6 == 1) buyResButton6.setEnabled(false);
+        else buyResButton6.setEnabled(true);
     }
 
     public void disableButton(JButton btn) {
@@ -1372,9 +1511,29 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
             buyFrame12.setVisible(true);
         }
 
-
-        // buy the reserved card...
+        if (e.getSource() == resLabel1) {
+            buyResFrame1.setVisible(true);
+        }
         
+        if (e.getSource() == resLabel2) {
+            buyResFrame2.setVisible(true);
+        }
+        
+        if (e.getSource() == resLabel3) {
+            buyResFrame3.setVisible(true);
+        }
+        
+        if (e.getSource() == resLabel4) {
+            buyResFrame4.setVisible(true);
+        }
+        
+        if (e.getSource() == resLabel5) {
+            buyResFrame5.setVisible(true);
+        }
+        
+        if (e.getSource() == resLabel6) {
+            buyResFrame6.setVisible(true);
+        }
 
     }
 
@@ -1467,12 +1626,545 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        if (e.getSource() == buyResButton1) {
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (buyResLabel1.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+
+                    r1 = 1;
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        myFrame.dispose();
+                        winner(player1);
+                    }
+
+                    resLabel1.setIcon(null);
+                    player1.resChance++;
+                    buyResFrame1.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
 
-        // add buy button for reserved cards
+                if (s) {
+
+                    r1 = 2;
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        myFrame.dispose();
+                        winner(player2);
+                    }
+
+                    resLabel1.setIcon(null);
+                    player2.resChance++;
+                    buyResFrame1.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == buyResButton2) {
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (buyResLabel2.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+
+                    r2 = 1;
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        myFrame.dispose();
+                        winner(player1);
+                    }
+
+                    resLabel2.setIcon(null);
+                    player1.resChance++;
+                    buyResFrame2.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
 
+                if (s) {
 
+                    r2 = 2;
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        myFrame.dispose();
+                        winner(player2);
+                    }
+
+                    resLabel2.setIcon(null);
+                    player2.resChance++;
+                    buyResFrame2.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == buyResButton3) {
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (buyResLabel3.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+
+                    r3 = 1;
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        myFrame.dispose();
+                        winner(player1);
+                    }
+
+                    resLabel3.setIcon(null);
+                    player1.resChance++;
+                    buyResFrame3.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+
+                    r3 = 2;
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        myFrame.dispose();
+                        winner(player2);
+                    }
+
+                    resLabel3.setIcon(null);
+                    player2.resChance++;
+                    buyResFrame3.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == buyResButton4) {
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (buyResLabel4.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+
+                    r4 = 1;
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        myFrame.dispose();
+                        winner(player1);
+                    }
+
+                    resLabel4.setIcon(null);
+                    player1.resChance++;
+                    buyResFrame4.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+
+                    r4 = 2;
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        myFrame.dispose();
+                        winner(player2);
+                    }
+
+                    resLabel4.setIcon(null);
+                    player2.resChance++;
+                    buyResFrame4.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == buyResButton5) {
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (buyResLabel5.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+
+                    r5 = 1;
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        myFrame.dispose();
+                        winner(player1);
+                    }
+
+                    resLabel5.setIcon(null);
+                    player1.resChance++;
+                    buyResFrame5.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+
+                    r5 = 2;
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        myFrame.dispose();
+                        winner(player2);
+                    }
+
+                    resLabel5.setIcon(null);
+                    player2.resChance++;
+                    buyResFrame5.dispose();
+
+                }
+            }
+        }
+
+        if (e.getSource() == buyResButton6) {
+            Card currentCard = new Card();
+
+            for (int i = 0; i < ICON_SIZE; i++) {
+                if (buyResLabel6.getIcon() == c[i].getCardIcon()) {
+                    currentCard = c[i];
+                    break;
+                }
+            }
+            
+            boolean s = true;
+            
+            if (player1.turn) {
+
+                // add a condition, if I have enough coin then buy the card and add special coin
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+                if (s) {
+
+                    r6 = 1;
+                    
+                    player1.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player1.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player1.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player1.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player1.specialRed++;
+                    else if (currentCard.specialCoin == "green") player1.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel1.setText("Specials:           " + player1.specialBlack + "             " + player1.specialWhite + "             " + player1.specialBlue + "             " + player1.specialRed + "             " + player1.specialGreen + "             "  + "-");
+                    
+                    player1.turn = false;
+                    player2.turn = true;
+                    scoreLabel1.setText("Score:   " + player1.score);
+
+                    if (player1.score >= 15) {
+                        myFrame.dispose();
+                        winner(player1);
+                    }
+
+                    resLabel6.setIcon(null);
+                    player1.resChance++;
+                    buyResFrame6.dispose();
+
+                }
+
+            } else {
+
+                s = true;
+
+                if (currentCard.black > player1.blackCount || currentCard.white > player1.whiteCount ||
+                currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
+
+
+                if (s) {
+
+                    r6 = 2;
+                    
+                    player2.score += currentCard.score;
+
+                    if (currentCard.specialCoin == "black") player2.specialBlack++;
+                    else if (currentCard.specialCoin == "white") player2.specialWhite++;
+                    else if (currentCard.specialCoin == "blue") player2.specialBlue++;
+                    else if (currentCard.specialCoin == "red") player2.specialRed++;
+                    else if (currentCard.specialCoin == "green") player2.specialGreen++;
+
+                    currentCard = null;
+                    
+                    specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
+
+                    player1.turn = true;
+                    player2.turn = false;
+                    scoreLabel2.setText("Score:   " + player2.score);
+
+                    if (player2.score >= 15) {
+                        myFrame.dispose();
+                        winner(player2);
+                    }
+
+                    resLabel6.setIcon(null);
+                    player2.resChance++;
+                    buyResFrame6.dispose();
+
+                }
+            }
+        }
 
         if (e.getSource() == buyButton1) {
 
@@ -1513,8 +2205,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -1563,8 +2255,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -1627,8 +2319,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -1677,8 +2369,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -1741,8 +2433,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -1791,8 +2483,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -1855,8 +2547,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -1905,8 +2597,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -1969,8 +2661,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2019,8 +2711,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2083,8 +2775,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2133,8 +2825,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2197,8 +2889,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2247,8 +2939,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2311,8 +3003,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2361,8 +3053,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2425,8 +3117,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2475,8 +3167,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2539,8 +3231,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2589,8 +3281,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2653,8 +3345,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2703,8 +3395,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2767,8 +3459,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
-                        System.out.println(player1.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player1);
                     }
 
                     while (true) {
@@ -2817,8 +3509,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
-                        System.out.println(player2.name + " is the winner!") ;
                         myFrame.dispose();
+                        winner(player2);
                     }
 
                     while (true) {
@@ -2843,6 +3535,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         }
 
         if (e.getSource() == showFrame) {
+            updateWhoRes();
+            updateResLabel();
             resFrame.setVisible(true);
         }
 
