@@ -9,6 +9,7 @@ public class Card extends JLabel implements MouseListener {
     int score;
     String specialCoin;
     String price;
+    int black = 0, white = 0, blue = 0, red = 0, green = 0;
     
     public Card(String address, String specialCoin, int score) {
 
