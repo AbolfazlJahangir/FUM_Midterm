@@ -226,7 +226,18 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
     JButton buyButton12 = new JButton("Buy!");
     JButton reserveButton12 = new JButton("Reserve");
 
+    ImageIcon turnIcon = new ImageIcon("C:\\Users\\pc\\Desktop\\FUM_Midterm_Project\\turn.png");
+
+    JLabel turnLabel1 = new JLabel(turnIcon);
+    JLabel turnLabel2 = new JLabel(turnIcon);
+
     Frame() {
+        turnLabel1.setBounds(510, 15, 65, 65);
+        turnLabel1.setOpaque(false);
+        
+        turnLabel2.setBounds(510, 410, 65, 65);
+        turnLabel2.setOpaque(false);
+
         addCards();
 
         sp1.blue = 4;
@@ -875,6 +886,9 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         gameLabel.add(cardLabel10);
         gameLabel.add(cardLabel11);
         gameLabel.add(cardLabel12);
+
+        gameLabel.add(turnLabel1);
+        gameLabel.add(turnLabel2);
         
         gameLabel.add(player1Label);
         gameLabel.add(player2Label);
@@ -884,7 +898,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
         add(gameLabel);
 
+        changeTurnIcon();
+
         setVisible(true);
+    }
+
+    public void changeTurnIcon() {
+        if (player1.turn) {
+            turnLabel1.setIcon(turnIcon);
+            turnLabel2.setIcon(null);
+        } else {
+            turnLabel1.setIcon(null);
+            turnLabel2.setIcon(turnIcon);
+        }
     }
 
     public void updateCoinLabels() {
@@ -1691,6 +1717,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -1729,9 +1756,10 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     currentCard = null;
                     
                     specialLabel2.setText("Specials:           " + player2.specialBlack + "             " + player2.specialWhite + "             " + player2.specialBlue + "             " + player2.specialRed + "             " + player2.specialGreen + "             "  + "-");
-
+                    
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -1785,6 +1813,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -1826,6 +1855,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -1879,6 +1909,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -1920,6 +1951,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -1973,6 +2005,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2014,6 +2047,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2067,6 +2101,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2108,6 +2143,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2161,6 +2197,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2202,6 +2239,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2255,6 +2293,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2307,6 +2346,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2373,6 +2413,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2425,6 +2466,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2491,6 +2533,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2543,6 +2586,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2609,6 +2653,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2661,6 +2706,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2727,6 +2773,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2779,6 +2826,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2845,6 +2893,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -2897,6 +2946,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -2963,6 +3013,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -3015,6 +3066,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -3081,6 +3133,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -3133,6 +3186,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -3199,6 +3253,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -3251,6 +3306,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -3317,6 +3373,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -3369,6 +3426,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -3435,6 +3493,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -3487,6 +3546,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -3553,6 +3613,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -3605,6 +3666,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -3671,6 +3733,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                     
                     player1.turn = false;
                     player2.turn = true;
+                    changeTurnIcon();
                     scoreLabel1.setText("Score:   " + player1.score);
 
                     if (player1.score >= 15) {
@@ -3723,6 +3786,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                     player1.turn = true;
                     player2.turn = false;
+                    changeTurnIcon();
                     scoreLabel2.setText("Score:   " + player2.score);
 
                     if (player2.score >= 15) {
@@ -3754,6 +3818,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
         if (e.getSource() == showFrame) {
             updateWhoRes();
             updateResLabel();
+            changeTurnIcon();
             resFrame.setVisible(true);
         }
 
@@ -3870,6 +3935,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton2) {
@@ -3985,6 +4051,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton3) {
@@ -4100,6 +4167,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton4) {
@@ -4215,6 +4283,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton5) {
@@ -4330,6 +4399,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton6) {
@@ -4445,6 +4515,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton7) {
@@ -4560,6 +4631,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton8) {
@@ -4675,6 +4747,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton9) {
@@ -4790,6 +4863,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton10) {
@@ -4905,6 +4979,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton11) {
@@ -5020,6 +5095,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
 
         if (e.getSource() == reserveButton12) {
@@ -5135,6 +5211,7 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 }
             }
+            changeTurnIcon();
         }
         
         if (e.getSource() == get2Coin) {
@@ -5230,6 +5307,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 if (greenState) player2.greenCount++;
 
             }
+
+            changeTurnIcon();
 
             blackState = false;
             whiteState = false;
@@ -5335,6 +5414,8 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 if (greenState) player2.greenCount += 2;
 
             }
+
+            changeTurnIcon();
 
             blackState = false;
             whiteState = false;
