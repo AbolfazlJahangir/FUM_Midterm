@@ -1699,6 +1699,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 if (s) {
 
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
+
                     r1 = 1;
                     
                     player1.score += currentCard.score;
@@ -1740,6 +1753,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
 
                     r1 = 2;
                     
@@ -1795,6 +1821,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 if (s) {
 
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
+
                     r2 = 1;
                     
                     player1.score += currentCard.score;
@@ -1836,6 +1875,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
 
                     r2 = 2;
                     
@@ -1891,6 +1943,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 if (s) {
 
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
+
                     r3 = 1;
                     
                     player1.score += currentCard.score;
@@ -1932,6 +1997,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
 
                     r3 = 2;
                     
@@ -1987,6 +2065,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 if (s) {
 
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
+
                     r4 = 1;
                     
                     player1.score += currentCard.score;
@@ -2028,6 +2119,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
 
                     r4 = 2;
                     
@@ -2083,6 +2187,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 if (s) {
 
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
+
                     r5 = 1;
                     
                     player1.score += currentCard.score;
@@ -2124,6 +2241,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
 
                     r5 = 2;
                     
@@ -2179,6 +2309,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
                 if (s) {
 
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
+
                     r6 = 1;
                     
                     player1.score += currentCard.score;
@@ -2220,6 +2363,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
 
                     r6 = 2;
                     
@@ -2276,6 +2432,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -2329,6 +2498,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -2396,6 +2578,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -2449,6 +2644,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -2516,6 +2724,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -2569,6 +2790,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -2636,6 +2870,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -2689,6 +2936,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -2756,6 +3016,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -2809,6 +3082,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -2876,6 +3162,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -2929,6 +3228,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -2996,6 +3308,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -3049,6 +3374,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -3116,6 +3454,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -3169,6 +3520,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -3236,6 +3600,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -3289,6 +3666,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -3356,6 +3746,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -3409,6 +3812,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -3476,6 +3892,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -3529,6 +3958,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -3596,6 +4038,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -3649,6 +4104,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
@@ -3716,6 +4184,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
                 currentCard.blue > player1.blueCount || currentCard.red > player1.redCount || currentCard.green > player1.greenCount) s = false;
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player1.blackCount -= currentCard.black;
+                    player1.whiteCount -= currentCard.white;
+                    player1.blueCount -= currentCard.blue;
+                    player1.redCount -= currentCard.red;
+                    player1.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player1.score += currentCard.score;
 
@@ -3769,6 +4250,19 @@ public class Frame extends JFrame implements MouseListener, ActionListener {
 
 
                 if (s) {
+
+                    blackCount += currentCard.black;
+                    whiteCount += currentCard.white;
+                    blueCount += currentCard.blue;
+                    redCount += currentCard.red;
+                    greenCount += currentCard.green;
+                    player2.blackCount -= currentCard.black;
+                    player2.whiteCount -= currentCard.white;
+                    player2.blueCount -= currentCard.blue;
+                    player2.redCount -= currentCard.red;
+                    player2.greenCount -= currentCard.green;
+
+                    updateCoin();
                     
                     player2.score += currentCard.score;
 
